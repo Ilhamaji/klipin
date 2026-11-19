@@ -803,9 +803,6 @@ Repo ini bukan salinan mentah; beberapa perbaikan integrasi sudah diterapkan:
 
 ## Kredit
 
-- Frontend: [Ilhamaji/frontend-klipin](https://github.com/Ilhamaji/frontend-klipin)
-- Backend: [Ilhamaji/backend-klipin](https://github.com/Ilhamaji/backend-klipin)
-- AI service: [AI-Research-TS/Ai-Services](https://github.com/AI-Research-TS/Ai-Services)
 - Model klasifikasi: scikit-learn (KNN, SVM, Logistic Regression, Random Forest)
 - Embedding: `sentence-transformers/LaBSE`
 - LLM: Groq `openai/gpt-oss-20b`
