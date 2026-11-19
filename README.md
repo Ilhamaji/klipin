@@ -11,8 +11,6 @@ Repo ini adalah **monorepo lengkap** yang berisi:
 | `ai-service/` | Pencarian artikel, klasifikasi ML, ekstraksi PDF, ringkasan LLM | FastAPI, scikit-learn, LaBSE, PyMuPDF, Groq |
 | `database/` | Skema PostgreSQL untuk instalasi baru | SQL |
 
-Frontend diambil dari repo [Ilhamaji/frontend-klipin](https://github.com/Ilhamaji/frontend-klipin) (commit `58e11b5`), lalu disesuaikan pada lapisan API agar cocok dengan endpoint backend di repo ini.
-
 ---
 
 ## Daftar Isi
