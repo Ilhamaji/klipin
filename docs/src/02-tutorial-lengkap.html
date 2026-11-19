@@ -1,0 +1,1412 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Klipin — Tutorial Lengkap</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  * { box-sizing: border-box; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  html { font-size: 10.2pt; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+    color: #1e293b;
+    line-height: 1.55;
+  }
+  h1, h2, h3, h4 { color: #0f172a; line-height: 1.25; margin: 0; }
+  h2 {
+    font-size: 17pt;
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #0f766e;
+  }
+  h3 { font-size: 12pt; margin: 16px 0 6px; color: #0f766e; }
+  h4 { font-size: 10.5pt; margin: 12px 0 4px; }
+  p { margin: 0 0 8px; }
+  ul, ol { margin: 0 0 9px; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .section { page-break-before: always; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 9pt; }
+  thead { display: table-header-group; }
+  th {
+    background: #0f766e; color: #fff; text-align: left;
+    padding: 6px 8px; font-weight: 600; border: 1px solid #0f766e;
+  }
+  td { padding: 5px 8px; border: 1px solid #d7dee7; vertical-align: top; }
+  tbody tr:nth-child(even) td { background: #f6f9f8; }
+  tr { page-break-inside: avoid; }
+  code {
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 8.7pt; background: #eef4f3; color: #0b5d55;
+    padding: 1px 4px; border-radius: 3px;
+  }
+  pre {
+    background: #f8fafb; border: 1px solid #dde5e9; border-left: 4px solid #0f766e;
+    border-radius: 4px; padding: 9px 11px; margin: 8px 0 12px;
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 8.2pt; line-height: 1.45;
+    white-space: pre-wrap; word-break: break-word; page-break-inside: avoid;
+  }
+  pre code { background: none; padding: 0; color: #1e293b; font-size: 8.2pt; }
+  .callout {
+    border: 1px solid #cfe0dd; background: #f0f8f6; border-left: 4px solid #0f766e;
+    border-radius: 4px; padding: 9px 12px; margin: 10px 0; page-break-inside: avoid;
+  }
+  .warn { border-color: #f0d9a8; background: #fffaf0; border-left-color: #d97706; }
+  .info { border-color: #cfdff2; background: #f2f7fd; border-left-color: #2563eb; }
+  .callout p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block; font-size: 8pt; font-weight: 600;
+    padding: 1px 7px; border-radius: 10px;
+    background: #d9f0ec; color: #0b5d55; margin-right: 4px;
+  }
+  .muted { color: #64748b; font-size: 9pt; }
+  .lead { font-size: 11pt; color: #334155; }
+  .stepbadge {
+    display: inline-block; width: 24px; height: 24px; border-radius: 50%;
+    background: #0f766e; color: #fff; text-align: center; line-height: 24px;
+    font-size: 9pt; font-weight: 700; margin-right: 6px;
+  }
+  .cover { page-break-after: always; padding-top: 22mm; }
+  .cover .eyebrow {
+    font-size: 9pt; letter-spacing: 2.5px; text-transform: uppercase;
+    color: #0f766e; font-weight: 700; margin-bottom: 14px;
+  }
+  .cover .banner {
+    background: linear-gradient(135deg, #0b4f4a 0%, #0f766e 55%, #14b8a6 100%);
+    color: #fff; border-radius: 10px; padding: 26px 26px 30px; margin-bottom: 22px;
+  }
+  .cover .banner h1 { color: #fff; font-size: 34pt; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .cover .banner .sub { font-size: 13.5pt; color: #d7f2ee; line-height: 1.4; }
+  .cover .banner .line { height: 3px; width: 74px; background: #facc15; margin: 16px 0 14px; border-radius: 2px; }
+  .cover .banner .desc { font-size: 10pt; color: #e6fbf8; max-width: 130mm; }
+  .cover .meta { width: 100%; font-size: 9.2pt; }
+  .cover .meta td { border: none; border-bottom: 1px solid #e2e8ee; padding: 7px 0; background: none !important; }
+  .cover .meta td:first-child { color: #64748b; width: 38mm; }
+  .cover .foot { margin-top: 24px; font-size: 8.6pt; color: #64748b; }
+  .toc { font-size: 10pt; list-style: none; padding-left: 0; }
+  .toc li { margin-bottom: 4px; }
+  .toc .num { color: #0f766e; font-weight: 700; display: inline-block; width: 26px; }
+  .toc .sub { color: #64748b; font-size: 9pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="eyebrow">Dokumentasi Project · Versi 1.0</div>
+  <div class="banner">
+    <h1>Tutorial Lengkap</h1>
+    <div class="sub">Menjalankan Klipin dari Nol, Deploy, dan<br>Mengganti Sumber Data serta Model Ringkasan</div>
+    <div class="line"></div>
+    <div class="desc">
+      Panduan langkah demi langkah untuk instalasi lokal, konfigurasi database,
+      pengujian end-to-end, deployment, serta kustomisasi pipeline AI:
+      sumber artikel, resolver PDF, dan model summarize.
+    </div>
+  </div>
+
+  <table class="meta">
+    <tr><td>Project</td><td><strong>Klipin</strong> — AI Research &amp; Reference System</td></tr>
+    <tr><td>Repository</td><td>github.com/Ilhamaji/klipin</td></tr>
+    <tr><td>Prasyarat utama</td><td>Node.js 20/22 LTS · Python 3.10/3.11 · PostgreSQL · Git LFS</td></tr>
+    <tr><td>Akun eksternal</td><td>SerpAPI · Groq · Supabase (opsional: OpenAlex, Unpaywall)</td></tr>
+    <tr><td>Estimasi waktu</td><td>45–90 menit untuk instalasi lokal pertama</td></tr>
+    <tr><td>Tanggal</td><td>19 November 2026</td></tr>
+  </table>
+
+  <div class="foot">
+    Semua perintah ditulis untuk Windows PowerShell, dengan catatan perbedaan untuk
+    Linux/macOS pada bagian tertentu. Jangan menyalin nilai contoh apa adanya;
+    ganti dengan kredensial milik Anda.
+  </div>
+</div>
+
+<!-- ================= TOC ================= -->
+<div>
+  <h2>Daftar Isi</h2>
+  <ol class="toc">
+    <li><span class="num">1</span>Prasyarat dan Persiapan Akun</li>
+    <li><span class="num">2</span>Clone Repository dan Git LFS</li>
+    <li><span class="num">3</span>Menyiapkan Database</li>
+    <li><span class="num">4</span>Menjalankan AI Service</li>
+    <li><span class="num">5</span>Menjalankan Backend</li>
+    <li><span class="num">6</span>Menjalankan Frontend</li>
+    <li><span class="num">7</span>Uji End-to-End</li>
+    <li><span class="num">8</span>Deployment</li>
+    <li><span class="num">9</span>Mengganti Sumber Data Artikel</li>
+    <li><span class="num">10</span>Mengganti Resolver PDF</li>
+    <li><span class="num">11</span>Mengganti Model Summarize (LLM)</li>
+    <li><span class="num">12</span>Opsional: Melatih Ulang Model Klasifikasi</li>
+    <li><span class="num">13</span>Troubleshooting</li>
+    <li><span class="num">14</span>Checklist Go-Live</li>
+    <li><span class="num">A</span>Lampiran A — Referensi Environment</li>
+    <li><span class="num">B</span>Lampiran B — Daftar 45 Kelas</li>
+  </ol>
+
+  <div class="callout info" style="margin-top:16px">
+    <p><strong>Urutan yang benar.</strong> Database dulu, lalu AI service, lalu backend,
+    terakhir frontend. Backend membutuhkan AI service saat start? Tidak, tetapi pencarian
+    akan gagal bila AI service belum hidup. Frontend membutuhkan backend untuk login.</p>
+  </div>
+</div>
+
+<!-- ================= 1 ================= -->
+<div class="section">
+  <h2>1. Prasyarat dan Persiapan Akun</h2>
+
+  <h3>Perangkat lunak</h3>
+  <table>
+    <thead><tr><th style="width:30%">Kebutuhan</th><th style="width:22%">Versi disarankan</th><th>Catatan</th></tr></thead>
+    <tbody>
+      <tr><td>Node.js</td><td>20 atau 22 LTS</td><td>Next.js 16 minimal 20.9. Node 26 bisa build, tetapi <code>next dev</code> di Windows pernah menggantung.</td></tr>
+      <tr><td>npm</td><td>10+</td><td>Jika PowerShell memblokir <code>npm</code>, pakai <code>npm.cmd</code>.</td></tr>
+      <tr><td>Python</td><td>3.10 atau 3.11</td><td>Model scikit-learn dibuat dengan 1.7.x; hindari Python 3.13+ untuk sementara.</td></tr>
+      <tr><td>PostgreSQL</td><td>14+ atau Supabase</td><td>Supabase lebih cepat untuk memulai.</td></tr>
+      <tr><td>Git + Git LFS</td><td>Git 2.40+, LFS 3.x</td><td>Wajib; model AI 540 MB ada di LFS.</td></tr>
+      <tr><td>Editor</td><td>VS Code / apa pun</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Akun dan API key</h3>
+  <table>
+    <thead><tr><th style="width:24%">Layanan</th><th style="width:26%">Dibutuhkan untuk</th><th>Catatan</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://serpapi.com/">SerpAPI</a></td><td>Pencarian Google Scholar</td><td>Free tier terbatas; key berbentuk string panjang</td></tr>
+      <tr><td><a href="https://console.groq.com/">Groq</a></td><td>Ringkasan LLM</td><td>Gunakan model <code>openai/gpt-oss-20b</code></td></tr>
+      <tr><td><a href="https://supabase.com/">Supabase</a></td><td>Database</td><td>Ambil pooler host, port 6543, user, password</td></tr>
+      <tr><td>OpenAlex / Unpaywall</td><td>Opsional</td><td>Untuk tutorial penggantian sumber data dan PDF</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cek versi</h3>
+<pre><code>node --version
+npm.cmd --version
+python --version
+git --version
+git lfs version</code></pre>
+
+  <div class="callout warn">
+    <p><strong>Jangan pakai akun produksi untuk uji coba.</strong> Buat project Supabase
+    terpisah atau database lokal. Pengujian akan membuat user, query, dan artikel baru.</p>
+  </div>
+</div>
+
+<!-- ================= 2 ================= -->
+<div class="section">
+  <h2>2. Clone Repository dan Git LFS</h2>
+
+  <h3><span class="stepbadge">1</span>Aktifkan Git LFS</h3>
+<pre><code>git lfs install</code></pre>
+
+  <h3><span class="stepbadge">2</span>Clone repo</h3>
+<pre><code>git clone https://github.com/Ilhamaji/klipin.git
+cd klipin
+git lfs pull</code></pre>
+
+  <h3><span class="stepbadge">3</span>Pastikan model benar-benar terunduh</h3>
+<pre><code>Get-ChildItem ai-service\src\models\*.pkl | Select-Object Name, Length</code></pre>
+
+  <p>Ukuran normal:</p>
+  <table>
+    <thead><tr><th style="width:50%">File</th><th>Ukuran</th></tr></thead>
+    <tbody>
+      <tr><td>model_randomforest.pkl</td><td>±414.743.000 byte</td></tr>
+      <tr><td>svm_model.pkl / model_svm.pkl</td><td>±29.000.000 byte</td></tr>
+      <tr><td>model_knn.pkl</td><td>±13.900.000 byte</td></tr>
+      <tr><td>model_logreg.pkl</td><td>±140.000 byte</td></tr>
+      <tr><td>label_encoder*.pkl</td><td>500–1.700 byte</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>Tanda LFS belum jalan:</strong> file <code>.pkl</code> hanya berukuran
+    100–200 byte dan isinya teks <code>version https://git-lfs.github.com/spec/v1</code>.
+    Jalankan <code>git lfs pull</code>; jika masih gagal, cek <code>git lfs env</code>.</p>
+  </div>
+
+  <h3>Alternatif: clone hemat kuota</h3>
+  <p>Jika hanya ingin mengerjakan backend atau frontend:</p>
+<pre><code>git clone --filter=blob:none --sparse https://github.com/Ilhamaji/klipin.git
+cd klipin
+git sparse-checkout set backend database</code></pre>
+  <p>Model AI tidak akan diunduh sampai Anda menambahkan <code>ai-service</code> ke sparse-checkout.</p>
+</div>
+
+<!-- ================= 3 ================= -->
+<div class="section">
+  <h2>3. Menyiapkan Database</h2>
+
+  <h3>Opsi A — Supabase (disarankan)</h3>
+  <ol>
+    <li>Buat project baru di <a href="https://supabase.com/">supabase.com</a>.</li>
+    <li>Buka <strong>SQL Editor</strong>, tempel seluruh isi <code>database/schema.sql</code>, lalu <strong>Run</strong>.</li>
+    <li>Buka <strong>Project Settings → Database</strong> dan catat:
+      <ul>
+        <li>Host pooler, misalnya <code>aws-1-ap-southeast-1.pooler.supabase.com</code></li>
+        <li>Port <code>6543</code> (transaction pooler)</li>
+        <li>User <code>postgres.&lt;project-ref&gt;</code></li>
+        <li>Password database</li>
+      </ul>
+    </li>
+    <li>Isi kredensial yang sama di <code>backend/.env</code> dan <code>ai-service/.env</code>.</li>
+  </ol>
+
+  <h3>Opsi B — PostgreSQL lokal</h3>
+<pre><code>createdb klipin
+psql -d klipin -f database/schema.sql</code></pre>
+
+  <p>Lalu di <code>backend/.env</code>:</p>
+<pre><code>DB_HOST=localhost
+DB_PORT=5432
+DB_SSL=false</code></pre>
+
+  <p>Dan di <code>ai-service/.env</code> gunakan URL penuh:</p>
+<pre><code>DATABASE_URL=postgresql+psycopg2://postgres:password@localhost:5432/klipin?sslmode=disable</code></pre>
+
+  <h3>Verifikasi tabel</h3>
+<pre><code>psql -d klipin -c "\dt"</code></pre>
+  <p>Harus muncul: <code>users</code>, <code>notes</code>, <code>queries</code>, <code>articles</code>, <code>saved_articles</code>.</p>
+
+  <h3>Isi skema (ringkas)</h3>
+<pre><code>users(user_id PK, username UNIQUE, password, created_at, updated_at)
+notes(id PK, user_id FK, title, contents, created_at, updated_at)
+queries(id PK, user_id FK, query_text, embedding JSON,
+        model_comparison JSON, created_at)
+articles(id PK, query_id FK, title, url, abstract, authors JSON,
+         year, subject, jenjang, relevance_score, confidence, created_at)
+saved_articles(id PK, user_id FK, article_id FK, created_at,
+               UNIQUE(user_id, article_id))</code></pre>
+
+  <div class="callout info">
+    <p><strong>Backend tidak membuat tabel otomatis.</strong> Jika skema belum dijalankan,
+    login akan gagal dengan error relasi <code>users</code> tidak ditemukan. AI service
+    hanya menambahkan kolom <code>model_comparison</code> bila belum ada.</p>
+  </div>
+</div>
+
+<!-- ================= 4 ================= -->
+<div class="section">
+  <h2>4. Menjalankan AI Service</h2>
+
+  <h3><span class="stepbadge">1</span>Buat virtual environment</h3>
+<pre><code>cd ai-service
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt</code></pre>
+
+  <p class="muted">Linux/macOS: <code>source venv/bin/activate</code>.</p>
+
+  <h3><span class="stepbadge">2</span>Buat file environment</h3>
+<pre><code>Copy-Item .env.example .env
+notepad .env</code></pre>
+
+  <p>Isi minimal:</p>
+<pre><code>PORT=7860
+SERPAPI_KEY=your_serpapi_key
+GROQ_API_KEY=your_groq_key
+
+DB_USER=postgres.xxxxxxxx
+DB_PASSWORD=xxxxxxxx
+DB_HOST=aws-1-ap-southeast-1.pooler.supabase.com
+DB_NAME=postgres
+DB_PORT=6543
+
+SIMILARITY_THRESHOLD=0.85</code></pre>
+
+  <h3><span class="stepbadge">3</span>Jalankan</h3>
+<pre><code>uvicorn app:app --host 0.0.0.0 --port 7860 --reload</code></pre>
+
+  <p>Start pertama akan memuat model LaBSE dan classifier, bisa 30–90 detik.</p>
+
+  <h3><span class="stepbadge">4</span>Verifikasi</h3>
+<pre><code>curl.exe http://localhost:7860/health</code></pre>
+<pre><code>{"status":"ok","service":"AI-Service-Skripsi"}</code></pre>
+
+  <p>Lalu uji pencarian langsung (tanpa backend):</p>
+<pre><code>curl.exe -X POST http://localhost:7860/ai/search -H "Content-Type: application/json" -d "{\"query\":\"reaksi kimia\",\"user_id\":1}"</code></pre>
+
+  <p>Uji ringkasan dengan PDF publik:</p>
+<pre><code>curl.exe -X POST http://localhost:7860/ai/summarize -H "Content-Type: application/json" -d "{\"url\":\"https://arxiv.org/pdf/1706.03762\"}"</code></pre>
+
+  <h3><span class="stepbadge">5</span>UI Gradio (opsional)</h3>
+  <p>Buka <code>http://localhost:7860/</code>. UI ini memakai model dan database yang sama.</p>
+
+  <div class="callout warn">
+    <p><strong>Jangan naikkan versi FastAPI sembarangan.</strong> <code>fastapi==0.115.6</code> dan
+    <code>starlette==0.41.3</code> dipin karena versi yang lebih baru membuat route
+    <code>/ai/search</code> dan <code>/ai/summarize</code> tidak terdaftar.</p>
+  </div>
+
+  <h3>Struktur startup yang perlu dipahami</h3>
+  <ul>
+    <li><code>app.py</code> membuat FastAPI, me-mount Gradio, dan menjalankan migrasi database di thread terpisah agar port cepat terbuka.</li>
+    <li><code>src/embed_model.py</code> memuat LaBSE di CPU; endpoint REST tidak boleh memakai ZeroGPU.</li>
+    <li><code>src/services/clasify_service.py</code> memuat model secara lazy saat pertama dipakai.</li>
+    <li><code>src/database.py</code> gagal cepat dengan pesan jelas bila env database belum lengkap.</li>
+  </ul>
+</div>
+
+<!-- ================= 5 ================= -->
+<div class="section">
+  <h2>5. Menjalankan Backend</h2>
+
+  <h3><span class="stepbadge">1</span>Install dependency</h3>
+<pre><code>cd backend
+npm.cmd ci</code></pre>
+
+  <h3><span class="stepbadge">2</span>Environment</h3>
+<pre><code>Copy-Item .env.example .env
+notepad .env</code></pre>
+
+  <p>Contoh lengkap:</p>
+<pre><code>APP_PORT=5000
+
+DB_NAME=postgres
+DB_USER=postgres.xxxxxxxx
+DB_PASSWORD=xxxxxxxx
+DB_HOST=aws-1-ap-southeast-1.pooler.supabase.com
+DB_PORT=6543
+DB_SSL=true
+
+JWT_SECRET=ganti-dengan-string-acak-panjang
+FASTAPI_URL=http://localhost:7860
+
+AI_TIMEOUT_MS=9000
+AI_SUMMARIZE_TIMEOUT_MS=55000</code></pre>
+
+  <p>Buat JWT secret acak:</p>
+<pre><code>node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"</code></pre>
+
+  <h3><span class="stepbadge">3</span>Jalankan</h3>
+<pre><code>npm.cmd start</code></pre>
+
+  <p>Output yang benar:</p>
+<pre><code>Database connected successfully
+Server berjalan! http://localhost:5000</code></pre>
+
+  <h3><span class="stepbadge">4</span>Verifikasi</h3>
+<pre><code>curl.exe http://localhost:5000/
+curl.exe http://localhost:5000/api/ai/ready</code></pre>
+
+  <h3>Arti timeout</h3>
+  <table>
+    <thead><tr><th style="width:38%">Variabel</th><th>Kapan dinaikkan</th></tr></thead>
+    <tbody>
+      <tr><td><code>AI_TIMEOUT_MS</code> (9000)</td><td>Hanya jika backend tidak berjalan di Netlify Functions. Di Render/Railway boleh 30000–60000.</td></tr>
+      <tr><td><code>AI_SUMMARIZE_TIMEOUT_MS</code> (55000)</td><td>Jika PDF besar atau provider LLM lambat; sesuaikan dengan batas platform.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Netlify 10 detik.</strong> Batas ini keras untuk fungsi sinkron. Menaikkan
+    <code>AI_TIMEOUT_MS</code> di Netlify tidak akan menolong; pindahkan backend ke Render
+    atau gunakan background function.</p>
+  </div>
+</div>
+
+<!-- ================= 6 ================= -->
+<div class="section">
+  <h2>6. Menjalankan Frontend</h2>
+
+  <h3><span class="stepbadge">1</span>Install dependency</h3>
+<pre><code>cd frontend
+npm.cmd ci</code></pre>
+
+  <h3><span class="stepbadge">2</span>Environment</h3>
+<pre><code>Copy-Item .env.example .env.local</code></pre>
+
+  <p>Isi:</p>
+<pre><code>NEXT_PUBLIC_API_URL=http://localhost:5000/api</code></pre>
+
+  <p>
+    Nilai boleh berupa host saja (<code>http://localhost:5000</code>) atau lengkap dengan
+    <code>/api</code>; kode menormalkan keduanya sehingga tidak terjadi <code>/api/api</code>.
+  </p>
+
+  <h3><span class="stepbadge">3</span>Jalankan</h3>
+<pre><code>npm.cmd run dev</code></pre>
+  <p>Buka <code>http://localhost:3000</code>. Tanpa cookie <code>auth_token</code>, middleware akan mengarahkan ke <code>/login</code>.</p>
+
+  <h3>Mode produksi</h3>
+<pre><code>npm.cmd run build
+npm.cmd start</code></pre>
+
+  <div class="callout warn">
+    <p><strong>Jika <code>next dev</code> menggantung di Windows:</strong> hentikan semua proses
+    <code>node</code> yang tersisa, gunakan Node 20/22 LTS, atau langsung pakai
+    <code>npm.cmd run build</code> lalu <code>npm.cmd start</code>. Perilaku ini pernah
+    muncul pada Node 26.</p>
+  </div>
+
+  <h3>Tentang <code>next.config.ts</code></h3>
+  <p>
+    File ini masih memiliki rewrite <code>/api/:path*</code> ke backend Netlify lama.
+    Rewrite hanya berlaku bila ada request ke path <code>/api</code> di origin frontend;
+    pemanggilan normal memakai <code>NEXT_PUBLIC_API_URL</code> sehingga rewrite tidak dipakai.
+    Untuk deployment baru, ubah tujuannya atau hapus blok tersebut.
+  </p>
+<pre><code>async rewrites() {
+  return [
+    {
+      source: "/api/:path*",
+      destination: `${process.env.API_PROXY_TARGET}/api/:path*`,
+    },
+  ];
+}</code></pre>
+</div>
+
+<!-- ================= 7 ================= -->
+<div class="section">
+  <h2>7. Uji End-to-End</h2>
+
+  <h3>Checklist UI</h3>
+  <ol>
+    <li>Buka <code>/register</code>, buat akun (minimal 8 karakter, ada huruf besar dan angka).</li>
+    <li>Login; pastikan cookie <code>auth_token</code> ada dan halaman utama terbuka.</li>
+    <li>Cari topik, misalnya <code>reaksi kimia</code> atau <code>fotosintesis</code>.</li>
+    <li>Pastikan muncul 5 artikel dengan label mapel dan jenjang.</li>
+    <li>Pilih satu artikel; panel <strong>Ringkasan Materi</strong> terisi tujuh bagian.</li>
+    <li>Klik <strong>Simpan ke Catatan</strong>, lalu buka menu <strong>Catatan</strong>.</li>
+    <li>Edit catatan, simpan, lalu refresh — perubahan harus bertahan (uji bug <code>contents</code>).</li>
+    <li>Klik ikon bookmark pada kartu artikel, buka <strong>Materi</strong>, pastikan jumlah bertambah.</li>
+    <li>Hapus materi; percobaan kedua harus menghasilkan 404, bukan 500.</li>
+    <li>Buka <strong>Histori</strong>, hapus satu riwayat, lalu logout.</li>
+  </ol>
+
+  <h3>Uji API dengan skrip Node</h3>
+  <p>Simpan sebagai <code>smoke.mjs</code> di root repo, lalu jalankan <code>node smoke.mjs</code>.</p>
+<pre><code>const B = "http://localhost:5000/api";
+const user = "demo" + Date.now();
+const pass = "DemoUser123";
+
+const j = async (res) =&gt; ({ status: res.status, body: await res.json() });
+
+const reg = await j(await fetch(B + "/auth/register", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ username: user, password: pass }),
+}));
+console.log("register", reg.status);
+
+const login = await j(await fetch(B + "/auth/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ username: user, password: pass }),
+}));
+const token = login.body.data.token;
+console.log("login", login.status, Boolean(token));
+
+const headers = {
+  "Content-Type": "application/json",
+  Authorization: "Bearer " + token,
+};
+
+const search = await j(await fetch(B + "/search", {
+  method: "POST", headers, body: JSON.stringify({ query: "reaksi kimia" }),
+}));
+console.log("search", search.status, search.body.articles?.length);
+const articleId = search.body.articles[0].id;
+
+const save = await j(await fetch(B + "/library/saved-articles", {
+  method: "POST", headers, body: JSON.stringify({ articleId }),
+}));
+console.log("save", save.status);
+
+const dup = await j(await fetch(B + "/library/saved-articles", {
+  method: "POST", headers, body: JSON.stringify({ articleId }),
+}));
+console.log("duplicate", dup.status);
+
+const note = await j(await fetch(B + "/note/add", {
+  method: "POST", headers,
+  body: JSON.stringify({ title: "Catatan Uji", contents: "ISI-AWAL" }),
+}));
+const noteId = note.body.data.id;
+
+const edit = await j(await fetch(B + "/note/edit/" + noteId, {
+  method: "PUT", headers, body: JSON.stringify({ contents: "ISI-BARU" }),
+}));
+console.log("edit", edit.status, edit.body.data.contents);</code></pre>
+
+  <h3>Status yang diharapkan</h3>
+  <table>
+    <thead><tr><th style="width:36%">Aksi</th><th style="width:18%">Status</th><th>Catatan</th></tr></thead>
+    <tbody>
+      <tr><td>Register</td><td>201</td><td><code>error: false</code></td></tr>
+      <tr><td>Login</td><td>200</td><td>Berisi <code>data.token</code></td></tr>
+      <tr><td>Search</td><td>200</td><td>5 artikel, <code>source</code> = serpapi/cache</td></tr>
+      <tr><td>Simpan library</td><td>201</td><td>—</td></tr>
+      <tr><td>Simpan duplikat</td><td>409</td><td>“Artikel sudah disimpan sebelumnya”</td></tr>
+      <tr><td>Hapus library kedua</td><td>404</td><td>“Artikel tidak ditemukan di library”</td></tr>
+      <tr><td>Edit catatan</td><td>200</td><td><code>contents</code> berubah</td></tr>
+      <tr><td>Ringkas artikel paywall</td><td>422</td><td>“PDF tidak ditemukan atau artikel di balik paywall”</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= 8 ================= -->
+<div class="section">
+  <h2>8. Deployment</h2>
+
+  <h3>8.1 Database — Supabase</h3>
+  <ol>
+    <li>Jalankan <code>database/schema.sql</code> di SQL Editor.</li>
+    <li>Simpan host pooler, port 6543, user, password.</li>
+    <li>Pastikan project tidak dalam status paused.</li>
+  </ol>
+
+  <h3>8.2 AI Service — Hugging Face Space</h3>
+  <ol>
+    <li>Buat Space baru: SDK <strong>Gradio</strong>, Python 3.10.</li>
+    <li>Upload isi folder <code>ai-service/</code> termasuk <code>src/models/*.pkl</code> (Gunakan Git LFS atau <code>huggingface-cli upload</code>).</li>
+    <li>Buka <strong>Settings → Variables and secrets</strong>, tambahkan:
+      <ul>
+        <li><code>SERPAPI_KEY</code>, <code>GROQ_API_KEY</code></li>
+        <li><code>DB_USER</code>, <code>DB_PASSWORD</code>, <code>DB_HOST</code>, <code>DB_NAME</code>, <code>DB_PORT</code></li>
+        <li>Opsional: <code>GROQ_MODEL</code>, <code>SUMMARY_MAX_*</code>, <code>SIMILARITY_THRESHOLD</code></li>
+      </ul>
+    </li>
+    <li>Pastikan <code>README.md</code> di folder AI memuat frontmatter Space:
+      <code>sdk: gradio</code>, <code>app_file: app.py</code>, <code>app_port: 7860</code>.</li>
+    <li>Tunggu build; cek <code>https://&lt;space&gt;.hf.space/health</code>.</li>
+  </ol>
+
+  <div class="callout warn">
+    <p><strong>Model besar di Space.</strong> Jika upload via Git, pastikan LFS aktif.
+    Alternatif: simpan model di Hugging Face Dataset/Model repo lalu unduh saat startup —
+    tetapi startup menjadi lebih lambat dan bergantung jaringan.</p>
+  </div>
+
+  <h3>8.3 Backend</h3>
+  <p><strong>Netlify Functions</strong> (sudah ada <code>netlify.toml</code> dan <code>netlify/functions/api.js</code>):</p>
+  <ol>
+    <li>Hubungkan repo, set base directory <code>backend</code>.</li>
+    <li>Tambahkan env yang sama dengan <code>.env</code>.</li>
+    <li>Ingat batas ±10 detik; ringkasan panjang akan gagal.</li>
+  </ol>
+
+  <p><strong>Render/Railway/Fly.io</strong> (disarankan untuk ringkasan):</p>
+  <ol>
+    <li>Start command <code>npm start</code>.</li>
+    <li>Set env termasuk <code>DB_SSL=true</code>.</li>
+    <li>Naikkan <code>AI_TIMEOUT_MS</code> ke 30000 dan <code>AI_SUMMARIZE_TIMEOUT_MS</code> sesuai batas platform.</li>
+  </ol>
+
+  <h3>8.4 Frontend — Vercel</h3>
+  <ol>
+    <li>Import repo, root directory <code>frontend</code>.</li>
+    <li>Environment: <code>NEXT_PUBLIC_API_URL=https://backend-anda/api</code>.</li>
+    <li>Deploy, lalu uji login dan satu pencarian.</li>
+  </ol>
+
+  <h3>8.5 Setelah deploy</h3>
+  <table>
+    <thead><tr><th style="width:34%">Cek</th><th>Harapan</th></tr></thead>
+    <tbody>
+      <tr><td><code>GET /</code> backend</td><td>200, pesan selamat datang</td></tr>
+      <tr><td><code>GET /api/ai/ready</code></td><td><code>{ "ready": true }</code></td></tr>
+      <tr><td><code>GET /login</code> frontend</td><td>200</td></tr>
+      <tr><td>Cari dari UI</td><td>Artikel muncul, bukan error CORS</td></tr>
+      <tr><td>Ringkas</td><td>Tujuh field terisi</td></tr>
+    </tbody>
+  </table>
+
+  <h3>8.6 CORS</h3>
+  <p>Saat ini backend memakai <code>cors()</code> terbuka. Untuk produksi:</p>
+<pre><code>app.use(cors({ origin: process.env.FRONTEND_ORIGIN }));</code></pre>
+</div>
+
+<!-- ================= 9 ================= -->
+<div class="section">
+  <h2>9. Mengganti Sumber Data Artikel</h2>
+
+  <p class="lead">
+    Sumber artikel adalah bagian yang paling sering ingin diganti, misalnya dari SerpAPI
+    ke OpenAlex agar gratis, atau ke Semantic Scholar karena metadata lebih lengkap.
+  </p>
+
+  <h3>9.1 Peta kode</h3>
+  <table>
+    <thead><tr><th style="width:42%">File / fungsi</th><th>Peran</th></tr></thead>
+    <tbody>
+      <tr><td><code>ai-service/src/services/search_service.py</code><br><code>search_serpapi()</code></td><td>Mengambil hasil mentah dari provider</td></tr>
+      <tr><td><code>semantic_rerank()</code></td><td>Menghitung cosine similarity judul+abstrak terhadap query</td></tr>
+      <tr><td><code>ai-service/src/routers/router.py</code></td><td>Memanggil provider, memberi label <code>source</code>, menyimpan ke DB</td></tr>
+      <tr><td><code>ai-service/src/services/query_service.py</code></td><td>Cache semantik dan penyimpanan query</td></tr>
+      <tr><td><code>ai-service/src/services/article_service.py</code></td><td>Menyimpan artikel hasil klasifikasi</td></tr>
+    </tbody>
+  </table>
+
+  <h3>9.2 Kontrak data yang wajib dipenuhi</h3>
+  <p>Fungsi provider harus mengembalikan list of dict dengan field berikut:</p>
+  <table>
+    <thead><tr><th style="width:22%">Field</th><th style="width:18%">Tipe</th><th>Dipakai untuk</th></tr></thead>
+    <tbody>
+      <tr><td><code>title</code></td><td>string</td><td><code>articles.title</code></td></tr>
+      <tr><td><code>link</code></td><td>string URL</td><td><code>articles.url</code> dan input ringkasan</td></tr>
+      <tr><td><code>abstract</code></td><td>string</td><td><code>articles.abstract</code> + input klasifikasi</td></tr>
+      <tr><td><code>authors</code></td><td>list string</td><td><code>articles.authors</code> (JSON)</td></tr>
+      <tr><td><code>year</code></td><td>string 4 digit</td><td><code>articles.year</code></td></tr>
+      <tr><td><code>relevance_score</code></td><td>float 0–1</td><td>Diisi otomatis oleh <code>semantic_rerank()</code></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>Jangan mengubah nama field.</strong> <code>router.py</code> membaca
+    <code>item["title"]</code>, <code>item["link"]</code>, <code>item["abstract"]</code>,
+    <code>item["authors"]</code>, dan <code>item["year"]</code>. Jika provider baru memakai
+    nama lain, map dulu di fungsi Anda.</p>
+  </div>
+
+  <h3>9.3 Contoh lengkap: OpenAlex (gratis, tanpa API key)</h3>
+  <p>Tambahkan fungsi berikut di <code>search_service.py</code>:</p>
+<pre><code>import os
+import requests
+
+OPENALEX_URL = "https://api.openalex.org/works"
+
+
+def search_openalex(query: str, embedding_model):
+    params = {
+        "search": query,
+        "per-page": SERPAPI_NUM,
+        "mailto": os.getenv("OPENALEX_MAILTO", ""),
+    }
+
+    response = requests.get(OPENALEX_URL, params=params, timeout=30)
+    if response.status_code != 200:
+        raise Exception("Gagal mengambil data dari OpenAlex")
+
+    results = []
+    for work in response.json().get("results", []):
+        abstract = ""
+        inverted = work.get("abstract_inverted_index") or {}
+        if inverted:
+            words = []
+            for word, positions in inverted.items():
+                for position in positions:
+                    words.append((position, word))
+            abstract = " ".join(word for _, word in sorted(words))
+
+        authors = [
+            item.get("author", {}).get("display_name", "")
+            for item in work.get("authorships", [])
+        ]
+
+        results.append({
+            "title": work.get("display_name") or "",
+            "link": (
+                (work.get("primary_location") or {}).get("landing_page_url")
+                or work.get("doi")
+                or ""
+            ),
+            "abstract": abstract,
+            "authors": authors,
+            "year": str(work.get("publication_year") or ""),
+        })
+
+    return semantic_rerank(query, results, embedding_model)[:SERPAPI_TOP_K]</code></pre>
+
+  <p>Ubah <code>router.py</code>:</p>
+<pre><code># dari
+from src.services.search_service import search_serpapi
+# menjadi
+from src.services.search_service import search_openalex
+
+# dari
+search_results = search_serpapi(user_query, embedding_model)
+# menjadi
+search_results = search_openalex(user_query, embedding_model)</code></pre>
+
+  <p>Ubah juga label sumber. Di <code>router.py</code> ada dua tempat yang mengembalikan
+  <code>"source": "serpapi"</code> (hasil kosong dan hasil normal); ganti keduanya menjadi
+  <code>"source": "openalex"</code>. Blok <code>except</code> yang menyebut SerpAPI juga
+  sebaiknya disesuaikan agar pesan errornya tidak menyesatkan.</p>
+
+  <h3>9.4 Contoh: Semantic Scholar</h3>
+<pre><code>SEMANTIC_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
+
+
+def search_semantic_scholar(query: str, embedding_model):
+    params = {
+        "query": query,
+        "limit": SERPAPI_NUM,
+        "fields": "title,abstract,authors,year,url,openAccessPdf",
+    }
+    headers = {}
+    api_key = os.getenv("SEMANTIC_SCHOLAR_API_KEY")
+    if api_key:
+        headers["x-api-key"] = api_key
+
+    response = requests.get(
+        SEMANTIC_URL, params=params, headers=headers, timeout=30
+    )
+    if response.status_code != 200:
+        raise Exception("Gagal mengambil data dari Semantic Scholar")
+
+    results = []
+    for paper in response.json().get("data", []):
+        pdf_url = (paper.get("openAccessPdf") or {}).get("url")
+        results.append({
+            "title": paper.get("title") or "",
+            "link": pdf_url or paper.get("url") or "",
+            "abstract": paper.get("abstract") or "",
+            "authors": [a.get("name", "") for a in paper.get("authors", [])],
+            "year": str(paper.get("year") or ""),
+        })
+
+    return semantic_rerank(query, results, embedding_model)[:SERPAPI_TOP_K]</code></pre>
+
+  <h3>9.5 Contoh: Crossref</h3>
+<pre><code>CROSSREF_URL = "https://api.crossref.org/works"
+
+
+def search_crossref(query: str, embedding_model):
+    params = {
+        "query": query,
+        "rows": SERPAPI_NUM,
+        "mailto": os.getenv("CROSSREF_MAILTO", ""),
+    }
+    response = requests.get(CROSSREF_URL, params=params, timeout=30)
+    if response.status_code != 200:
+        raise Exception("Gagal mengambil data dari Crossref")
+
+    results = []
+    for item in response.json().get("message", {}).get("items", []):
+        titles = item.get("title") or []
+        year = ""
+        parts = (item.get("published-print") or item.get("published-online") or {}) \
+            .get("date-parts") or [[]]
+        if parts and parts[0]:
+            year = str(parts[0][0])
+
+        authors = [
+            " ".join(filter(None, [a.get("given"), a.get("family")]))
+            for a in item.get("author", [])
+        ]
+
+        results.append({
+            "title": titles[0] if titles else "",
+            "link": item.get("URL") or "",
+            "abstract": item.get("abstract") or "",
+            "authors": authors,
+            "year": year,
+        })
+
+    return semantic_rerank(query, results, embedding_model)[:SERPAPI_TOP_K]</code></pre>
+
+  <h3>9.6 Hal yang harus diperhatikan</h3>
+  <table>
+    <thead><tr><th style="width:26%">Aspek</th><th>Penjelasan</th></tr></thead>
+    <tbody>
+      <tr><td>Cache</td><td>Cache memakai embedding query, bukan nama provider. Setelah mengganti provider, query lama masih bisa mengembalikan hasil lama. Hapus baris <code>queries</code> milik user uji.</td></tr>
+      <tr><td>Error handling</td><td>Lempar exception dengan pesan jelas; router mengubahnya menjadi HTTP 502.</td></tr>
+      <tr><td>Rate limit</td><td>OpenAlex/Crossref meminta <code>mailto</code> agar masuk polite pool. Semantic Scholar membatasi request tanpa API key.</td></tr>
+      <tr><td>Abstrak</td><td>Sebagian provider tidak menyediakan abstrak; klasifikasi tetap berjalan dengan judul saja, tetapi akurasi turun.</td></tr>
+      <tr><td>Link</td><td>Prioritaskan URL PDF open access agar ringkasan tidak gagal 422.</td></tr>
+      <tr><td>Tahun</td><td>Pastikan string, bukan integer, agar konsisten dengan kolom <code>varchar(4)</code>.</td></tr>
+      <tr><td>User-Agent</td><td>Beberapa API memblokir klien tanpa identitas. Tambahkan header yang menyebut aplikasi dan kontak.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>9.7 Menguji provider baru</h3>
+  <ol>
+    <li>Restart AI service (<code>uvicorn</code> dengan <code>--reload</code> otomatis memuat ulang).</li>
+    <li>Hapus cache query lama lewat SQL:
+<pre><code>DELETE FROM queries WHERE user_id = 1;</code></pre>
+    </li>
+    <li>Panggil langsung:
+<pre><code>curl.exe -X POST http://localhost:7860/ai/search -H "Content-Type: application/json" -d "{\"query\":\"fotosintesis\",\"user_id\":1}"</code></pre>
+    </li>
+    <li>Periksa <code>source</code> bernilai provider baru dan setiap artikel punya <code>title</code>, <code>url</code>, <code>year</code>, serta label mapel.</li>
+    <li>Buka UI dan lakukan pencarian yang sama.</li>
+  </ol>
+
+  <h3>9.8 Checklist</h3>
+  <ul>
+    <li>Fungsi provider mengembalikan lima field wajib dengan tipe benar.</li>
+    <li><code>router.py</code> mengimpor dan memanggil fungsi baru.</li>
+    <li>Label <code>source</code> dan pesan error sudah disesuaikan.</li>
+    <li>Env baru ditambahkan ke <code>.env.example</code> dan dokumentasi.</li>
+    <li>Key lama (jika tidak dipakai) dihapus dari env dan tidak lagi diwajibkan.</li>
+    <li>Diuji dengan query yang belum pernah dipakai agar cache tidak menutupi hasil.</li>
+  </ul>
+</div>
+
+<!-- ================= 10 ================= -->
+<div class="section">
+  <h2>10. Mengganti Resolver PDF</h2>
+
+  <p class="lead">
+    Resolver PDF menentukan apakah sebuah URL artikel bisa diubah menjadi file PDF yang
+    bisa diekstrak. Bagian ini yang paling sering menyebabkan error 422.
+  </p>
+
+  <h3>10.1 Alur saat ini</h3>
+  <div class="flow" style="counter-reset: none">
+    <p><code>summarize_from_url(url)</code> → cek cache → <code>_find_pdf_url(url)</code> →
+    validasi <code>application/pdf</code> → <code>_extract_text_from_pdf()</code> →
+    <code>summarize()</code> ke LLM → parse 7 field → simpan cache.</p>
+  </div>
+
+  <h3>10.2 Fungsi yang perlu diubah</h3>
+  <table>
+    <thead><tr><th style="width:40%">Fungsi</th><th>Tanggung jawab</th></tr></thead>
+    <tbody>
+      <tr><td><code>_find_pdf_url(article_url)</code></td><td>Menemukan URL PDF dari halaman artikel</td></tr>
+      <tr><td><code>_extract_text_from_pdf(pdf_url)</code></td><td>Mengunduh PDF, memvalidasi tipe, ekstraksi PyMuPDF</td></tr>
+      <tr><td><code>_document_title(doc)</code></td><td>Mengambil judul dari metadata atau halaman pertama</td></tr>
+      <tr><td><code>summarize_from_url()</code></td><td>Orkestrasi + cache</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.3 Menambah pola domain jurnal</h3>
+  <p>Tambahkan cabang di awal <code>_find_pdf_url</code>, sebelum pencarian HTML umum:</p>
+<pre><code>def _find_pdf_url(article_url: str) -&gt; str | None:
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
+
+    # Pola OJS umum
+    if "/article/view/" in article_url:
+        candidate = article_url.replace("/article/view/", "/article/download/")
+        try:
+            test = requests.get(candidate, headers=headers, timeout=10, stream=True)
+            if "application/pdf" in test.headers.get("Content-Type", ""):
+                return candidate
+        except Exception:
+            pass
+
+    # Domain dengan pola khusus
+    if "jurnal.example.ac.id" in article_url:
+        candidate = article_url.rstrip("/") + "/pdf"
+        return candidate
+
+    # ... kode lama: cek PDF langsung, a.pdf, link .pdf/download/fulltext ...</code></pre>
+
+  <h3>10.4 Menambahkan cookie/referer</h3>
+  <p>Sebagian jurnal menolak unduhan tanpa referer atau sesi:</p>
+<pre><code>headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "Referer": article_url,
+    "Cookie": os.getenv("JOURNAL_COOKIE", ""),
+}</code></pre>
+  <p>Simpan cookie di env, jangan hardcode di source.</p>
+
+  <h3>10.5 Menyelesaikan DOI ke PDF open access (Unpaywall)</h3>
+<pre><code>import re
+
+DOI_PATTERN = re.compile(r"10\.\d{4,9}/[-._;()/:A-Za-z0-9]+")
+
+
+def resolve_pdf_from_doi(article_url: str) -&gt; str | None:
+    match = DOI_PATTERN.search(article_url)
+    if not match:
+        return None
+
+    doi = match.group(0)
+    response = requests.get(
+        f"https://api.unpaywall.org/v2/{doi}",
+        params={"email": os.getenv("UNPAYWALL_EMAIL", "")},
+        timeout=15,
+    )
+    if response.status_code != 200:
+        return None
+
+    best = response.json().get("best_oa_location") or {}
+    return best.get("url_for_pdf") or best.get("url")</code></pre>
+
+  <p>Panggil di <code>_find_pdf_url</code> sebelum fallback HTML:</p>
+<pre><code>doi_pdf = resolve_pdf_from_doi(article_url)
+if doi_pdf:
+    return doi_pdf</code></pre>
+
+  <h3>10.6 Halaman yang membutuhkan JavaScript (Playwright)</h3>
+  <p><code>requests</code> + BeautifulSoup tidak mengeksekusi JavaScript. Untuk situs seperti itu:</p>
+<pre><code>from playwright.sync_api import sync_playwright
+
+
+def _resolve_pdf_with_browser(article_url: str) -&gt; str | None:
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        page.goto(article_url, wait_until="networkidle", timeout=20000)
+        href = page.eval_on_selector(
+            "a.pdf, a[href$='.pdf'], a[href*='download']",
+            "el =&gt; el.href",
+        )
+        browser.close()
+        return href</code></pre>
+
+  <p>Tambahkan dependensi:</p>
+<pre><code>pip install playwright
+playwright install chromium</code></pre>
+
+  <div class="callout warn">
+    <p><strong>Ukuran image membengkak.</strong> Chromium menambah ratusan MB. Di Hugging Face
+    Space, gunakan Dockerfile dan jalankan <code>playwright install --with-deps chromium</code>
+    saat build. Panggil Playwright hanya sebagai fallback, bukan untuk semua URL.</p>
+  </div>
+
+  <h3>10.7 Batas teks dan token</h3>
+  <table>
+    <thead><tr><th style="width:40%">Env</th><th style="width:16%">Default</th><th>Efek</th></tr></thead>
+    <tbody>
+      <tr><td><code>SUMMARY_MAX_BODY_WORDS</code></td><td>1000</td><td>Kata naskah utama yang dikirim ke LLM</td></tr>
+      <tr><td><code>SUMMARY_MAX_BIB_WORDS</code></td><td>200</td><td>Kata daftar pustaka</td></tr>
+      <tr><td><code>SUMMARY_MAX_OUTPUT_TOKENS</code></td><td>1300</td><td>Panjang jawaban LLM</td></tr>
+    </tbody>
+  </table>
+  <p>Jika ringkasan terpotong, naikkan bertahap sambil memantau kuota Groq.</p>
+
+  <h3>10.8 Uji resolver</h3>
+  <ol>
+    <li>Uji dengan tiga jenis URL: PDF langsung, halaman OJS, dan halaman HTML jurnal.</li>
+    <li>Pastikan respons bukan halaman login yang dikirim sebagai PDF.</li>
+    <li>Jika gagal, log <code>Content-Type</code> dan status code untuk melihat penyebab.</li>
+    <li>Hapus cache ringkasan sebelum menguji ulang URL yang sama.</li>
+  </ol>
+
+  <h3>10.9 Gejala dan arti</h3>
+  <table>
+    <thead><tr><th style="width:34%">Pesan</th><th>Penyebab</th></tr></thead>
+    <tbody>
+      <tr><td>PDF tidak ditemukan atau artikel di balik paywall</td><td>Tidak ada link PDF, butuh login, atau JavaScript</td></tr>
+      <tr><td>URL tidak mengembalikan file PDF yang valid</td><td>Link mengarah ke halaman HTML, bukan file PDF</td></tr>
+      <tr><td>Gagal mengekstrak teks dari PDF</td><td>PDF hasil scan tanpa layer teks (butuh OCR)</td></tr>
+      <tr><td>Groq API mengembalikan error 429</td><td>Kuota token per menit habis</td></tr>
+      <tr><td>Response dari Groq API tidak valid</td><td>Format jawaban berubah; periksa prompt/parser</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= 11 ================= -->
+<div class="section">
+  <h2>11. Mengganti Model Summarize (LLM)</h2>
+
+  <p class="lead">
+    Model ringkasan diatur di <code>ai-service/src/services/summarize_service.py</code>.
+    Ada dua tingkat perubahan: mengganti nama model di Groq, atau mengganti provider LLM
+    sepenuhnya.
+  </p>
+
+  <h3>11.1 Parameter saat ini</h3>
+  <table>
+    <thead><tr><th style="width:38%">Item</th><th>Nilai</th></tr></thead>
+    <tbody>
+      <tr><td>Endpoint</td><td><code>https://api.groq.com/openai/v1/chat/completions</code></td></tr>
+      <tr><td>Model</td><td><code>openai/gpt-oss-20b</code> (env <code>GROQ_MODEL</code>)</td></tr>
+      <tr><td>Temperature</td><td>0,2</td></tr>
+      <tr><td><code>reasoning_effort</code></td><td><code>low</code> (khusus model gpt-oss)</td></tr>
+      <tr><td>Max output</td><td>1300 token (env)</td></tr>
+      <tr><td>Retry</td><td>3 kali, backoff eksponensial, menghormati <code>Retry-After</code></td></tr>
+      <tr><td>Timeout request</td><td>90 detik</td></tr>
+    </tbody>
+  </table>
+
+  <h3>11.2 Cara termudah: ganti model Groq</h3>
+  <p>Tanpa mengubah kode, cukup ubah env:</p>
+<pre><code>GROQ_MODEL=openai/gpt-oss-120b</code></pre>
+  <p>Daftar model tersedia: <code>https://api.groq.com/openai/v1/models</code> dengan header
+  <code>Authorization: Bearer $GROQ_API_KEY</code>.</p>
+
+  <div class="callout">
+    <p><strong>Pilih model yang mendukung output terstruktur.</strong> Ringkasan bergantung pada
+    tujuh label teks. Model kecil tanpa instruksi kuat sering mengembalikan format bebas
+    sehingga parser menghasilkan field kosong.</p>
+  </div>
+
+  <h3>11.3 Ganti provider OpenAI-compatible</h3>
+  <p>Banyak provider memakai skema request yang sama. Ubah konstanta menjadi env:</p>
+<pre><code>LLM_API_URL = os.getenv(
+    "LLM_API_URL", "https://api.groq.com/openai/v1/chat/completions"
+)
+LLM_API_KEY = os.getenv("LLM_API_KEY") or os.getenv("GROQ_API_KEY")
+LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-20b")</code></pre>
+
+  <p>Lalu di <code>summarize()</code>:</p>
+<pre><code>headers = {
+    "Authorization": f"Bearer {LLM_API_KEY}",
+    "Content-Type": "application/json",
+}
+
+payload = {
+    "model": LLM_MODEL,
+    "messages": [{"role": "user", "content": prompt}],
+    "temperature": 0.2,
+    "max_tokens": MAX_OUTPUT_TOKENS,
+}</code></pre>
+
+  <div class="callout warn">
+    <p><strong>Hapus <code>reasoning_effort</code></strong> jika provider bukan Groq/gpt-oss.
+    Field ini tidak dikenal OpenAI, Gemini, atau Ollama dan dapat menyebabkan error 400.</p>
+  </div>
+
+  <h3>11.4 Contoh konfigurasi provider</h3>
+  <table>
+    <thead><tr><th style="width:20%">Provider</th><th style="width:46%">LLM_API_URL</th><th>Contoh model</th></tr></thead>
+    <tbody>
+      <tr><td>Groq</td><td><code>https://api.groq.com/openai/v1/chat/completions</code></td><td><code>openai/gpt-oss-20b</code></td></tr>
+      <tr><td>OpenAI</td><td><code>https://api.openai.com/v1/chat/completions</code></td><td><code>gpt-4o-mini</code></td></tr>
+      <tr><td>Gemini (kompatibel)</td><td><code>https://generativelanguage.googleapis.com/v1beta/openai/chat/completions</code></td><td><code>gemini-2.0-flash</code></td></tr>
+      <tr><td>OpenRouter</td><td><code>https://openrouter.ai/api/v1/chat/completions</code></td><td><code>meta-llama/llama-3.3-70b-instruct</code></td></tr>
+      <tr><td>Ollama lokal</td><td><code>http://localhost:11434/v1/chat/completions</code></td><td><code>qwen2.5:7b</code></td></tr>
+    </tbody>
+  </table>
+
+  <p>Contoh env untuk Ollama:</p>
+<pre><code>LLM_API_URL=http://localhost:11434/v1/chat/completions
+LLM_MODEL=qwen2.5:7b
+LLM_API_KEY=ollama</code></pre>
+  <p>Naikkan timeout di <code>requests.post(..., timeout=90)</code> menjadi 300 untuk model lokal yang lambat.</p>
+
+  <h3>11.5 Menjaga kontrak output</h3>
+  <p>Parser di <code>_parse_summary()</code> mencari tujuh label berikut. Prompt dan model baru
+  harus tetap menghasilkan label ini:</p>
+  <table>
+    <thead><tr><th style="width:38%">Label yang dicari parser</th><th>Field hasil</th></tr></thead>
+    <tbody>
+      <tr><td><code>Judul:</code> atau <code>Identitas Dokumen:</code></td><td><code>judul</code></td></tr>
+      <tr><td><code>Author:</code> atau <code>Penulis:</code></td><td><code>author</code></td></tr>
+      <tr><td><code>Kompetensi Utama / Tujuan:</code></td><td><code>kompetensi</code></td></tr>
+      <tr><td><code>Isi Materi &amp; Metodologi:</code></td><td><code>isi_materi</code></td></tr>
+      <tr><td><code>Inti Pembahasan &amp; Temuan:</code></td><td><code>temuan</code></td></tr>
+      <tr><td><code>Kesimpulan Keseluruhan:</code></td><td><code>kesimpulan</code></td></tr>
+      <tr><td><code>Daftar Pustaka:</code></td><td><code>daftar_pustaka</code></td></tr>
+    </tbody>
+  </table>
+
+  <p>Jika Anda mengubah label, ubah juga regex di <code>patterns</code>. Jika ingin output JSON
+  murni, ganti <code>_parse_summary()</code> dengan <code>json.loads()</code> dan minta model
+  mengembalikan JSON; pastikan ada fallback bila JSON tidak valid.</p>
+
+  <h3>11.6 Menyesuaikan prompt</h3>
+  <ul>
+    <li>Pertahankan instruksi “tulis dalam Bahasa Indonesia baku” agar konsisten.</li>
+    <li>Instruksi kesimpulan berbentuk paragraf harus tetap ada; model cenderung membuat poin.</li>
+    <li>Jangan menambah bagian baru tanpa memperbarui parser dan UI.</li>
+    <li>Untuk dokumen non-akademik, tambahkan kalimat bahwa konteks boleh berupa materi ajar.</li>
+  </ul>
+
+  <h3>11.7 Cache ringkasan</h3>
+  <table>
+    <thead><tr><th style="width:38%">Env</th><th>Default</th></tr></thead>
+    <tbody>
+      <tr><td><code>SUMMARY_CACHE_DIR</code></td><td><code>/tmp/summary_cache</code></td></tr>
+      <tr><td><code>SUMMARY_CACHE_TTL_SECONDS</code></td><td>86400 (24 jam)</td></tr>
+    </tbody>
+  </table>
+  <p>Setelah mengganti model atau prompt, hapus cache agar hasil lama tidak dipakai:</p>
+<pre><code># Windows
+Remove-Item -Recurse -Force C:\tmp\summary_cache
+
+# Linux / container
+rm -rf /tmp/summary_cache</code></pre>
+  <p>Di Windows, <code>/tmp</code> dipetakan ke <code>C:\tmp</code>; jika tidak ada, atur
+  <code>SUMMARY_CACHE_DIR</code> ke folder yang pasti ada.</p>
+
+  <h3>11.8 Uji kualitas</h3>
+  <ol>
+    <li>Uji satu PDF akademik dan satu materi ajar sekolah.</li>
+    <li>Periksa ketujuh field terisi; tidak ada <code>**</code> liar atau placeholder <code>(judul)</code>.</li>
+    <li>Pastikan kesimpulan berupa paragraf, bukan bullet.</li>
+    <li>Bandingkan panjang dan bahasa antar model pada dokumen yang sama.</li>
+    <li>Catat waktu respons dan token yang dipakai untuk memperkirakan biaya.</li>
+  </ol>
+
+  <h3>11.9 Ringkasan perubahan</h3>
+<pre><code># .env AI service
+GROQ_API_KEY=...
+GROQ_MODEL=openai/gpt-oss-20b
+SUMMARY_MAX_BODY_WORDS=1000
+SUMMARY_MAX_BIB_WORDS=200
+SUMMARY_MAX_OUTPUT_TOKENS=1300
+GROQ_MAX_RETRIES=3
+GROQ_RETRY_BASE_SECONDS=2</code></pre>
+</div>
+
+<!-- ================= 12 ================= -->
+<div class="section">
+  <h2>12. Opsional: Melatih Ulang Model Klasifikasi</h2>
+
+  <p>
+    Bagian ini hanya diperlukan bila Anda ingin mengganti label atau meningkatkan akurasi.
+    Untuk sekadar menjalankan project, lewati bagian ini.
+  </p>
+
+  <h3>12.1 Format dataset</h3>
+  <p>Setiap sampel adalah pasangan teks dan label <code>"Mapel - Jenjang"</code>:</p>
+<pre><code>texts = [
+    "Bagaimana cara menghitung luas lingkaran?",
+    "Proses fotosintesis pada tumbuhan hijau",
+]
+labels = [
+    "Matematika - SD",
+    "Biologi - SMA",
+]</code></pre>
+
+  <h3>12.2 Yang dilakukan skrip</h3>
+  <ol>
+    <li>Memuat LaBSE dan mengubah seluruh teks menjadi embedding 768 dimensi.</li>
+    <li>Melatih empat model: KNN, SVM, Logistic Regression, Random Forest.</li>
+    <li>Menyimpan model dan <code>label_encoder.pkl</code> ke <code>src/models/</code>.</li>
+  </ol>
+
+  <div class="callout warn">
+    <p><strong><code>scripts/train_models.py</code> adalah contoh.</strong> Isinya masih memakai
+    enam kalimat contoh dan parameter default. Ganti <code>texts</code> dan <code>labels</code>
+    dengan dataset nyata, lalu sesuaikan hyperparameter.</p>
+  </div>
+
+  <h3>12.3 Langkah</h3>
+  <ol>
+    <li>Siapkan dataset minimal 10 sampel per kelas (idealnya ratusan).</li>
+    <li>Ganti <code>texts</code> dan <code>labels</code> di skrip; jaga agar setiap label memakai
+      format <code>Mapel - Jenjang</code> dengan pemisah <code>" - "</code>.</li>
+    <li>Jalankan:
+<pre><code>cd ai-service
+python scripts/train_models.py</code></pre>
+    </li>
+    <li>Pastikan file berikut diperbarui: <code>model_knn.pkl</code>, <code>model_svm.pkl</code>,
+      <code>model_logreg.pkl</code>, <code>model_randomforest.pkl</code>, <code>label_encoder.pkl</code>.</li>
+    <li>Sesuaikan threshold per algoritma di <code>clasify_service.py</code>:
+<pre><code>OPTIMAL_THRESHOLD_PER_ALGO = {
+    "knn": 0.59,
+    "svm": 0.37,
+    "logreg": 0.52,
+    "rf": 0.09,
+}</code></pre>
+    </li>
+    <li>Perbarui <code>src/models/model_metadata.json</code> bila Anda menampilkan skor di UI.</li>
+    <li>Hapus <code>__pycache__</code> dan restart AI service agar model dimuat ulang.</li>
+    <li>Uji dengan beberapa kalimat yang tidak ada di dataset.</li>
+  </ol>
+
+  <div class="callout info">
+    <p><strong>Satu encoder untuk semua model.</strong> Keempat model memakai
+    <code>label_encoder.pkl</code> yang sama. Jangan mencampur encoder dari pelatihan berbeda;
+    urutan kelas harus identik.</p>
+  </div>
+
+  <h3>12.4 Menambah kelas baru</h3>
+  <ul>
+    <li>Tambahkan label pada dataset dan latih ulang semua model.</li>
+    <li>Jumlah kelas di <code>model_metadata.json</code> harus diperbarui.</li>
+    <li>Threshold perlu ditinjau ulang karena distribusi probabilitas berubah.</li>
+    <li>UI tidak menyimpan daftar kelas, jadi tidak ada perubahan frontend.</li>
+  </ul>
+</div>
+
+<!-- ================= 13 ================= -->
+<div class="section">
+  <h2>13. Troubleshooting</h2>
+
+  <table>
+    <thead><tr><th style="width:30%">Gejala</th><th style="width:28%">Penyebab umum</th><th>Solusi</th></tr></thead>
+    <tbody>
+      <tr><td><code>503 AI_WARMING_UP</code></td><td>Space AI cold start</td><td>Tunggu 30 detik; panggil <code>/api/ai/ready</code>; pertimbangkan Space selalu hidup</td></tr>
+      <tr><td><code>502 Gagal mengambil data dari SerpAPI</code></td><td>Key salah atau kuota habis</td><td>Cek <code>SERPAPI_KEY</code> dan dashboard SerpAPI</td></tr>
+      <tr><td><code>422 PDF tidak ditemukan</code></td><td>Link bukan PDF atau paywall</td><td>Uji URL PDF langsung; tambah resolver domain</td></tr>
+      <tr><td><code>429</code> / kuota Groq penuh</td><td>Rate limit token per menit</td><td>Tunggu; turunkan <code>SUMMARY_MAX_*</code>; naikkan kuota</td></tr>
+      <tr><td><code>401</code> / <code>403</code></td><td>Token tidak ada atau kedaluwarsa</td><td>Login ulang; pastikan <code>JWT_SECRET</code> tidak berubah</td></tr>
+      <tr><td><code>ECONNREFUSED 5000</code></td><td>Backend mati</td><td>Jalankan <code>npm start</code> di <code>backend</code></td></tr>
+      <tr><td><code>ECONNREFUSED 7860</code></td><td>AI service mati</td><td>Jalankan <code>uvicorn app:app --port 7860</code></td></tr>
+      <tr><td><code>Failed to fetch</code> + CORS</td><td><code>NEXT_PUBLIC_API_URL</code> salah</td><td>Pastikan origin backend benar dan backend hidup</td></tr>
+      <tr><td>Model <code>.pkl</code> hanya 150 byte</td><td>LFS belum di-pull</td><td><code>git lfs install</code> lalu <code>git lfs pull</code></td></tr>
+      <tr><td><code>next dev</code> menggantung</td><td>Node terlalu baru / proses node menumpuk</td><td>Pakai Node 20/22 LTS; hentikan proses node; pakai build + start</td></tr>
+      <tr><td>Tabel tidak ditemukan</td><td>Skema belum dijalankan</td><td>Jalankan <code>database/schema.sql</code></td></tr>
+      <tr><td><code>tenant/user not found</code> Supabase</td><td>Project paused atau kredensial salah</td><td>Resume project; cek host/user/password</td></tr>
+      <tr><td>Edit catatan tidak berubah</td><td>Versi lama memakai <code>content</code></td><td>Pakai repo terbaru; backend sudah menerima <code>contents</code></td></tr>
+      <tr><td>Label klasifikasi selalu “Umum”</td><td>Model gagal dimuat</td><td>Cek log <code>[CLASSIFY MODEL NOTICE]</code>; pastikan file model ada</td></tr>
+      <tr><td>Ringkasan kosong/terpotong</td><td>Output token habis atau format meleset</td><td>Naikkan <code>SUMMARY_MAX_OUTPUT_TOKENS</code>; pilih model yang lebih patuh instruksi</td></tr>
+      <tr><td>Route <code>/ai/*</code> 404</td><td>Versi FastAPI/Starlette terlalu baru</td><td>Pin <code>fastapi==0.115.6</code>, <code>starlette==0.41.3</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Perintah diagnosa cepat</h3>
+<pre><code># Port yang dipakai
+Get-NetTCPConnection -State Listen -LocalPort 3000,5000,7860
+
+# Kesehatan tiap layanan
+curl.exe http://localhost:7860/health
+curl.exe http://localhost:5000/
+curl.exe http://localhost:5000/api/ai/ready
+
+# Proses node/python yang menumpuk
+Get-Process node,python -ErrorAction SilentlyContinue | Select-Object Id,ProcessName,StartTime</code></pre>
+</div>
+
+<!-- ================= 14 ================= -->
+<div class="section">
+  <h2>14. Checklist Go-Live</h2>
+
+  <h3>Konfigurasi</h3>
+  <ul>
+    <li>Semua <code>.env</code> berisi kredensial asli dan tidak ikut ter-commit.</li>
+    <li><code>JWT_SECRET</code> acak dan berbeda antara lokal dan produksi.</li>
+    <li><code>FASTAPI_URL</code> menunjuk ke AI service produksi, bukan localhost.</li>
+    <li><code>NEXT_PUBLIC_API_URL</code> menunjuk ke backend produksi dengan path <code>/api</code>.</li>
+    <li><code>DB_SSL=true</code> untuk Supabase; <code>false</code> hanya untuk PostgreSQL lokal.</li>
+  </ul>
+
+  <h3>Fungsi</h3>
+  <ul>
+    <li>Register, login, logout, dan proteksi route berjalan.</li>
+    <li>Pencarian mengembalikan artikel dengan label mapel dan jenjang.</li>
+    <li>Cache query bekerja: query serupa tidak memanggil provider lagi.</li>
+    <li>Ringkasan menghasilkan tujuh field dan dapat disimpan sebagai catatan.</li>
+    <li>Edit catatan benar-benar mengubah isi di database.</li>
+    <li>Library: simpan, tampil di Materi, hapus, dan hapus kedua menghasilkan 404.</li>
+    <li>Histori dapat dilihat dan dihapus.</li>
+  </ul>
+
+  <h3>Keamanan</h3>
+  <ul>
+    <li>Secret lama yang pernah bocor sudah dirotasi.</li>
+    <li>CORS dibatasi ke origin frontend.</li>
+    <li>Rate limit aktif untuk endpoint mahal (search, summarize).</li>
+    <li>AI service tidak dapat diakses publik tanpa pembatas.</li>
+    <li>Token uji coba dan akses database dicabut setelah selesai.</li>
+  </ul>
+
+  <h3>Operasional</h3>
+  <ul>
+    <li>Health check dipantau (<code>/health</code>, <code>/api/ai/ready</code>).</li>
+    <li>Log mencatat durasi pencarian, ringkasan, dan error provider.</li>
+    <li>Backup database terjadwal.</li>
+    <li>Kuota SerpAPI dan Groq dipantau.</li>
+    <li>Rencana fallback bila provider utama down.</li>
+  </ul>
+</div>
+
+<!-- ================= A ================= -->
+<div class="section">
+  <h2>Lampiran A — Referensi Environment</h2>
+
+  <h3><code>frontend/.env.local</code></h3>
+  <table>
+    <thead><tr><th style="width:38%">Variabel</th><th style="width:22%">Wajib</th><th>Contoh</th></tr></thead>
+    <tbody>
+      <tr><td><code>NEXT_PUBLIC_API_URL</code></td><td>Ya</td><td><code>http://localhost:5000/api</code></td></tr>
+      <tr><td><code>API_PROXY_TARGET</code></td><td>Tidak</td><td>Hanya jika memakai rewrite <code>next.config.ts</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3><code>backend/.env</code></h3>
+  <table>
+    <thead><tr><th style="width:30%">Variabel</th><th style="width:14%">Wajib</th><th style="width:26%">Contoh</th><th>Catatan</th></tr></thead>
+    <tbody>
+      <tr><td><code>APP_PORT</code></td><td>Ya</td><td>5000</td><td>Port Express</td></tr>
+      <tr><td><code>DB_NAME</code></td><td>Ya</td><td>postgres</td><td>Nama database</td></tr>
+      <tr><td><code>DB_USER</code></td><td>Ya</td><td>postgres.xxxx</td><td>User Supabase</td></tr>
+      <tr><td><code>DB_PASSWORD</code></td><td>Ya</td><td>••••</td><td>Jangan commit</td></tr>
+      <tr><td><code>DB_HOST</code></td><td>Ya</td><td>aws-...pooler.supabase.com</td><td>Host pooler</td></tr>
+      <tr><td><code>DB_PORT</code></td><td>Ya</td><td>6543</td><td>5432 untuk lokal</td></tr>
+      <tr><td><code>DB_SSL</code></td><td>Tidak</td><td>true</td><td><code>false</code> untuk lokal tanpa SSL</td></tr>
+      <tr><td><code>JWT_SECRET</code></td><td>Ya</td><td>string acak</td><td>Ganti di produksi</td></tr>
+      <tr><td><code>FASTAPI_URL</code></td><td>Ya</td><td>http://localhost:7860</td><td>Tanpa trailing slash</td></tr>
+      <tr><td><code>AI_TIMEOUT_MS</code></td><td>Tidak</td><td>9000</td><td>Naikkan di luar Netlify</td></tr>
+      <tr><td><code>AI_SUMMARIZE_TIMEOUT_MS</code></td><td>Tidak</td><td>55000</td><td>Sesuaikan batas platform</td></tr>
+      <tr><td><code>FRONTEND_ORIGIN</code></td><td>Tidak</td><td>https://app.anda</td><td>Dipakai setelah CORS dibatasi</td></tr>
+    </tbody>
+  </table>
+
+  <h3><code>ai-service/.env</code></h3>
+  <table>
+    <thead><tr><th style="width:34%">Variabel</th><th style="width:14%">Wajib</th><th style="width:24%">Default</th><th>Catatan</th></tr></thead>
+    <tbody>
+      <tr><td><code>PORT</code></td><td>Tidak</td><td>7860</td><td>Port Uvicorn</td></tr>
+      <tr><td><code>SERPAPI_KEY</code></td><td>Ya*</td><td>—</td><td>Wajib bila memakai SerpAPI</td></tr>
+      <tr><td><code>SERPAPI_URL</code></td><td>Tidak</td><td>serpapi.com/search</td><td>Bisa diganti endpoint</td></tr>
+      <tr><td><code>SERPAPI_ENGINE</code></td><td>Tidak</td><td>google_scholar</td><td>Engine SerpAPI</td></tr>
+      <tr><td><code>SERPAPI_NUM</code></td><td>Tidak</td><td>10</td><td>Hasil mentah</td></tr>
+      <tr><td><code>SERPAPI_TOP_K</code></td><td>Tidak</td><td>5</td><td>Hasil akhir</td></tr>
+      <tr><td><code>SIMILARITY_THRESHOLD</code></td><td>Tidak</td><td>0.85</td><td>Ambang cache</td></tr>
+      <tr><td><code>GROQ_API_KEY</code></td><td>Ya</td><td>—</td><td>Ringkasan</td></tr>
+      <tr><td><code>GROQ_MODEL</code></td><td>Tidak</td><td>openai/gpt-oss-20b</td><td>Model LLM</td></tr>
+      <tr><td><code>SUMMARY_MAX_BODY_WORDS</code></td><td>Tidak</td><td>1000</td><td>Batas naskah</td></tr>
+      <tr><td><code>SUMMARY_MAX_BIB_WORDS</code></td><td>Tidak</td><td>200</td><td>Batas pustaka</td></tr>
+      <tr><td><code>SUMMARY_MAX_OUTPUT_TOKENS</code></td><td>Tidak</td><td>1300</td><td>Batas output</td></tr>
+      <tr><td><code>GROQ_MAX_RETRIES</code></td><td>Tidak</td><td>3</td><td>Retry 429/5xx</td></tr>
+      <tr><td><code>GROQ_RETRY_BASE_SECONDS</code></td><td>Tidak</td><td>2</td><td>Backoff awal</td></tr>
+      <tr><td><code>SUMMARY_CACHE_DIR</code></td><td>Tidak</td><td>/tmp/summary_cache</td><td>Folder cache</td></tr>
+      <tr><td><code>SUMMARY_CACHE_TTL_SECONDS</code></td><td>Tidak</td><td>86400</td><td>Umur cache</td></tr>
+      <tr><td><code>DB_USER</code> … <code>DB_PORT</code></td><td>Ya*</td><td>—</td><td>Wajib bila tanpa <code>DATABASE_URL</code></td></tr>
+      <tr><td><code>DATABASE_URL</code></td><td>Alternatif</td><td>—</td><td>Mengalahkan <code>DB_*</code></td></tr>
+      <tr><td><code>OPENALEX_MAILTO</code></td><td>Tidak</td><td>—</td><td>Hanya untuk provider OpenAlex</td></tr>
+      <tr><td><code>UNPAYWALL_EMAIL</code></td><td>Tidak</td><td>—</td><td>Hanya untuk resolver DOI</td></tr>
+      <tr><td><code>JOURNAL_COOKIE</code></td><td>Tidak</td><td>—</td><td>Untuk jurnal yang butuh sesi</td></tr>
+    </tbody>
+  </table>
+
+  <p class="muted">* Wajib bila fitur terkait dipakai.</p>
+</div>
+
+<!-- ================= B ================= -->
+<div class="section">
+  <h2>Lampiran B — Daftar 45 Kelas</h2>
+
+  <p>Format label: <code>Mapel - Jenjang</code>. Daftar ini berasal dari
+  <code>model_metadata.json</code> dan menjadi keluaran classifier.</p>
+
+  <table>
+    <thead><tr><th style="width:8%">#</th><th style="width:64%">Kelas</th><th>Jenjang</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Antropologi</td><td>SMA</td></tr>
+      <tr><td>2</td><td>Bahasa Indonesia</td><td>SD</td></tr>
+      <tr><td>3</td><td>Bahasa Indonesia</td><td>SMP</td></tr>
+      <tr><td>4</td><td>Bahasa Indonesia</td><td>SMA</td></tr>
+      <tr><td>5</td><td>Bahasa Indonesia Tingkat Lanjut</td><td>SMA</td></tr>
+      <tr><td>6</td><td>Bahasa Inggris</td><td>SMP</td></tr>
+      <tr><td>7</td><td>Bahasa Inggris</td><td>SMA</td></tr>
+      <tr><td>8</td><td>Bahasa Inggris Tingkat Lanjut</td><td>SMA</td></tr>
+      <tr><td>9</td><td>Biologi</td><td>SMA</td></tr>
+      <tr><td>10</td><td>Ekonomi</td><td>SMA</td></tr>
+      <tr><td>11</td><td>Fisika</td><td>SMA</td></tr>
+      <tr><td>12</td><td>Geografi</td><td>SMA</td></tr>
+      <tr><td>13</td><td>Ilmu Pengetahuan Alam</td><td>SMP</td></tr>
+      <tr><td>14</td><td>Ilmu Pengetahuan Sosial</td><td>SMP</td></tr>
+      <tr><td>15</td><td>Informatika</td><td>SMP</td></tr>
+      <tr><td>16</td><td>Ipas</td><td>SD</td></tr>
+      <tr><td>17</td><td>Kimia</td><td>SMA</td></tr>
+      <tr><td>18</td><td>Matematika</td><td>SD</td></tr>
+      <tr><td>19</td><td>Matematika</td><td>SMP</td></tr>
+      <tr><td>20</td><td>Matematika</td><td>SMA</td></tr>
+      <tr><td>21</td><td>Matematika Tingkat Lanjut</td><td>SMA</td></tr>
+      <tr><td>22</td><td>Pendidikan Agama Buddha</td><td>SD</td></tr>
+      <tr><td>23</td><td>Pendidikan Agama Buddha</td><td>SMP</td></tr>
+      <tr><td>24</td><td>Pendidikan Agama Buddha</td><td>SMA</td></tr>
+      <tr><td>25</td><td>Pendidikan Agama Hindu</td><td>SD</td></tr>
+      <tr><td>26</td><td>Pendidikan Agama Hindu</td><td>SMP</td></tr>
+      <tr><td>27</td><td>Pendidikan Agama Hindu</td><td>SMA</td></tr>
+      <tr><td>28</td><td>Pendidikan Agama Islam</td><td>SD</td></tr>
+      <tr><td>29</td><td>Pendidikan Agama Islam</td><td>SMP</td></tr>
+      <tr><td>30</td><td>Pendidikan Agama Islam</td><td>SMA</td></tr>
+      <tr><td>31</td><td>Pendidikan Agama Katolik</td><td>SD</td></tr>
+      <tr><td>32</td><td>Pendidikan Agama Katolik</td><td>SMP</td></tr>
+      <tr><td>33</td><td>Pendidikan Agama Katolik</td><td>SMA</td></tr>
+      <tr><td>34</td><td>Pendidikan Agama Khonghucu</td><td>SD</td></tr>
+      <tr><td>35</td><td>Pendidikan Agama Khonghucu</td><td>SMP</td></tr>
+      <tr><td>36</td><td>Pendidikan Agama Khonghucu</td><td>SMA</td></tr>
+      <tr><td>37</td><td>Pendidikan Pancasila</td><td>SD</td></tr>
+      <tr><td>38</td><td>Pendidikan Pancasila</td><td>SMP</td></tr>
+      <tr><td>39</td><td>Pendidikan Pancasila</td><td>SMA</td></tr>
+      <tr><td>40</td><td>Pjok</td><td>SD</td></tr>
+      <tr><td>41</td><td>Pjok</td><td>SMP</td></tr>
+      <tr><td>42</td><td>Pjok</td><td>SMA</td></tr>
+      <tr><td>43</td><td>Sejarah</td><td>SMA</td></tr>
+      <tr><td>44</td><td>Seni Budaya</td><td>SD</td></tr>
+      <tr><td>45</td><td>Sosiologi</td><td>SMA</td></tr>
+    </tbody>
+  </table>
+
+  <p class="muted" style="margin-top:18px; border-top:1px solid #e2e8ee; padding-top:10px">
+    Klipin · Tutorial Lengkap · Versi 1.0 · 19 November 2026<br>
+    Repository: github.com/Ilhamaji/klipin
+  </p>
+</div>
+
+</body>
+</html>

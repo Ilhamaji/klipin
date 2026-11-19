@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Klipin — Deskripsi &amp; Detail Project</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  * { box-sizing: border-box; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  html { font-size: 10.2pt; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Calibri", Arial, sans-serif;
+    color: #1e293b;
+    line-height: 1.55;
+  }
+  h1, h2, h3, h4 { color: #0f172a; line-height: 1.25; margin: 0; }
+  h2 {
+    font-size: 17pt;
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #0f766e;
+  }
+  h3 { font-size: 12pt; margin: 16px 0 6px; color: #0f766e; }
+  h4 { font-size: 10.5pt; margin: 12px 0 4px; }
+  p { margin: 0 0 8px; }
+  ul, ol { margin: 0 0 9px; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .section { page-break-before: always; }
+  .no-break { page-break-inside: avoid; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 12px;
+    font-size: 9pt;
+  }
+  thead { display: table-header-group; }
+  th {
+    background: #0f766e;
+    color: #ffffff;
+    text-align: left;
+    padding: 6px 8px;
+    font-weight: 600;
+    border: 1px solid #0f766e;
+  }
+  td {
+    padding: 5px 8px;
+    border: 1px solid #d7dee7;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) td { background: #f6f9f8; }
+  tr { page-break-inside: avoid; }
+  code {
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 8.7pt;
+    background: #eef4f3;
+    color: #0b5d55;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+  pre {
+    background: #f8fafb;
+    border: 1px solid #dde5e9;
+    border-left: 4px solid #0f766e;
+    border-radius: 4px;
+    padding: 9px 11px;
+    margin: 8px 0 12px;
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 8.3pt;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-break: break-word;
+    page-break-inside: avoid;
+  }
+  pre code { background: none; padding: 0; color: #1e293b; font-size: 8.3pt; }
+  .callout {
+    border: 1px solid #cfe0dd;
+    background: #f0f8f6;
+    border-left: 4px solid #0f766e;
+    border-radius: 4px;
+    padding: 9px 12px;
+    margin: 10px 0;
+    page-break-inside: avoid;
+  }
+  .warn { border-color: #f0d9a8; background: #fffaf0; border-left-color: #d97706; }
+  .info { border-color: #cfdff2; background: #f2f7fd; border-left-color: #2563eb; }
+  .callout p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block;
+    font-size: 8pt;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 10px;
+    background: #d9f0ec;
+    color: #0b5d55;
+    margin-right: 4px;
+  }
+  .grid2 { display: table; width: 100%; table-layout: fixed; border-spacing: 8px 0; margin-left: -8px; }
+  .grid2 > div { display: table-cell; vertical-align: top; }
+  .card {
+    border: 1px solid #dfe6ec;
+    border-radius: 6px;
+    padding: 10px 12px;
+    background: #ffffff;
+    page-break-inside: avoid;
+  }
+  .card h4 { margin-top: 0; }
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+  .kpi { font-size: 9pt; }
+  .kpi strong { display: block; font-size: 15pt; color: #0f766e; line-height: 1.2; }
+  .muted { color: #64748b; font-size: 9pt; }
+
+  /* Cover */
+  .cover { page-break-after: always; padding-top: 22mm; }
+  .cover .eyebrow {
+    font-size: 9pt;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #0f766e;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .cover .banner {
+    background: linear-gradient(135deg, #0b4f4a 0%, #0f766e 55%, #14b8a6 100%);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 26px 26px 30px;
+    margin-bottom: 22px;
+  }
+  .cover .banner h1 {
+    color: #ffffff;
+    font-size: 34pt;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .cover .banner .sub {
+    font-size: 13.5pt;
+    color: #d7f2ee;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .cover .banner .line {
+    height: 3px;
+    width: 74px;
+    background: #facc15;
+    margin: 16px 0 14px;
+    border-radius: 2px;
+  }
+  .cover .banner .desc { font-size: 10pt; color: #e6fbf8; max-width: 130mm; }
+  .cover .meta { width: 100%; font-size: 9.2pt; }
+  .cover .meta td { border: none; border-bottom: 1px solid #e2e8ee; padding: 7px 0; background: none !important; }
+  .cover .meta td:first-child { color: #64748b; width: 38mm; }
+  .cover .foot { margin-top: 26px; font-size: 8.6pt; color: #64748b; }
+
+  /* TOC */
+  .toc { font-size: 10pt; list-style: none; padding-left: 0; }
+  .toc li { margin-bottom: 5px; }
+  .toc .num { color: #0f766e; font-weight: 700; display: inline-block; width: 22px; }
+  .toc .sub { color: #64748b; font-size: 9pt; }
+
+  .lead { font-size: 11pt; color: #334155; }
+  .flow { counter-reset: step; margin: 10px 0 14px; }
+  .flow .step {
+    position: relative;
+    padding: 8px 10px 8px 40px;
+    border: 1px solid #e2e8ee;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    page-break-inside: avoid;
+    background: #fff;
+  }
+  .flow .step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #0f766e;
+    color: #fff;
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-align: center;
+    line-height: 20px;
+  }
+  .flow .step b { color: #0f172a; }
+  .diagram {
+    border: 1px solid #dfe6ec;
+    border-radius: 6px;
+    background: #fbfdfd;
+    padding: 14px 12px;
+    margin: 10px 0 14px;
+    page-break-inside: avoid;
+    font-family: Consolas, monospace;
+    font-size: 8.2pt;
+    line-height: 1.5;
+    white-space: pre;
+    overflow: hidden;
+  }
+  .pill-row { margin: 6px 0 2px; }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="eyebrow">Dokumentasi Project · Versi 1.0</div>
+  <div class="banner">
+    <h1>Klipin</h1>
+    <div class="sub">Sistem Riset Literatur Berbasis AI<br>Pencarian, Klasifikasi, dan Ringkasan Materi Otomatis</div>
+    <div class="line"></div>
+    <div class="desc">
+      Deskripsi lengkap arsitektur, pipeline AI, model klasifikasi, skema database,
+      daftar API, keamanan, dan topologi deployment dari monorepo Klipin
+      (frontend, backend, dan AI service).
+    </div>
+  </div>
+
+  <table class="meta">
+    <tr><td>Nama project</td><td><strong>Klipin</strong> — AI Research &amp; Reference System</td></tr>
+    <tr><td>Repository</td><td>github.com/Ilhamaji/klipin</td></tr>
+    <tr><td>Komponen</td><td>Next.js frontend · Express backend · FastAPI AI service</td></tr>
+    <tr><td>Model AI</td><td>LaBSE + 4 classifier scikit-learn + Groq gpt-oss-20b</td></tr>
+    <tr><td>Sumber artikel</td><td>SerpAPI Google Scholar</td></tr>
+    <tr><td>Database</td><td>PostgreSQL (Supabase)</td></tr>
+    <tr><td>Tanggal</td><td>19 November 2026</td></tr>
+  </table>
+
+  <div class="foot">
+    Dokumen ini menjelaskan kondisi project apa adanya, termasuk batasan yang masih ada.
+    Untuk langkah instalasi dan perubahan sumber data, gunakan dokumen pendamping
+    <em>Tutorial Lengkap</em>.
+  </div>
+</div>
+
+<!-- ================= TOC ================= -->
+<div>
+  <h2>Daftar Isi</h2>
+  <ol class="toc">
+    <li><span class="num">1</span>Ringkasan Eksekutif</li>
+    <li><span class="num">2</span>Latar Belakang dan Tujuan</li>
+    <li><span class="num">3</span>Arsitektur Sistem</li>
+    <li><span class="num">4</span>Stack Teknologi</li>
+    <li><span class="num">5</span>Struktur Repository</li>
+    <li><span class="num">6</span>Pipeline Pencarian dan Klasifikasi</li>
+    <li><span class="num">7</span>Model Klasifikasi dan Performa</li>
+    <li><span class="num">8</span>Pipeline Ringkasan PDF</li>
+    <li><span class="num">9</span>Skema Database</li>
+    <li><span class="num">10</span>Referensi API</li>
+    <li><span class="num">11</span>Keamanan</li>
+    <li><span class="num">12</span>Topologi Deployment</li>
+    <li><span class="num">13</span>Batasan dan Rekomendasi</li>
+    <li><span class="num">14</span>Perbaikan yang Diterapkan</li>
+  </ol>
+
+  <div class="callout info" style="margin-top:18px">
+    <p><strong>Cara membaca dokumen ini.</strong> Bagian 1–5 untuk gambaran produk dan struktur kode.
+    Bagian 6–9 untuk detail teknis pipeline dan data. Bagian 10–14 untuk integrasi,
+    operasional, dan catatan kualitas.</p>
+  </div>
+</div>
+
+<!-- ================= 1 ================= -->
+<div class="section">
+  <h2>1. Ringkasan Eksekutif</h2>
+  <p class="lead">
+    Klipin adalah aplikasi web yang membantu pendidik, mahasiswa, dan peneliti menemukan
+    literatur akademik, mengklasifikasikannya ke mata pelajaran dan jenjang sekolah,
+    lalu meringkas isi PDF artikel menjadi materi ajar terstruktur dalam Bahasa Indonesia.
+  </p>
+
+  <p>
+    Sistem terdiri dari tiga layanan yang berjalan terpisah namun terhubung melalui HTTP:
+    frontend Next.js sebagai antarmuka, backend Express sebagai gateway autentikasi dan data,
+    serta AI service FastAPI yang menangani pencarian, klasifikasi, ekstraksi PDF, dan
+    pemanggilan LLM. Database PostgreSQL dipakai bersama oleh backend dan AI service.
+  </p>
+
+  <p>
+    Nilai utama system terletak pada dua pipeline. Pipeline pertama mengubah kata kunci
+    menjadi lima artikel relevan yang sudah dilabeli mapel dan jenjang, dengan cache
+    semantik agar query serupa tidak memanggil API pencarian lagi. Pipeline kedua
+    mengubah URL artikel menjadi ringkasan tujuh bagian, dengan toleransi terhadap
+    berbagai bentuk halaman jurnal (PDF langsung, OJS, dan halaman HTML).
+  </p>
+
+  <h3>Ringkasan angka</h3>
+  <div class="grid2">
+    <div class="card kpi"><strong>3</strong>Layanan utama: frontend, backend, AI service</div>
+    <div class="card kpi"><strong>5</strong>Tabel database: users, notes, queries, articles, saved_articles</div>
+    <div class="card kpi"><strong>45</strong>Kelas mapel–jenjang Kurikulum Merdeka</div>
+  </div>
+  <div class="grid2" style="margin-top:8px">
+    <div class="card kpi"><strong>4</strong>Algoritma klasifikasi: KNN, SVM, LogReg, Random Forest</div>
+    <div class="card kpi"><strong>68,2%</strong>Akurasi hold-out model utama (SVM Linear)</div>
+    <div class="card kpi"><strong>7</strong>Bagian ringkasan: judul, author, kompetensi, isi, temuan, kesimpulan, pustaka</div>
+  </div>
+
+  <h3>Status project</h3>
+  <table>
+    <thead><tr><th style="width:32%">Aspek</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Fitur inti</td><td>Berfungsi end-to-end: register, login, cari, ringkas, simpan catatan, library, histori</td></tr>
+      <tr><td>Integrasi</td><td>Frontend–backend–AI service sudah diselaraskan (endpoint library dan payload diperbaiki)</td></tr>
+      <tr><td>Kualitas kode</td><td>Build frontend dan backend lolos; bug kontrak API utama sudah diperbaiki</td></tr>
+      <tr><td>Kesiapan produksi</td><td>Layak untuk demo dan penelitian; perlu hardening CORS, autentikasi AI service, dan monitoring</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= 2 ================= -->
+<div class="section">
+  <h2>2. Latar Belakang dan Tujuan</h2>
+
+  <h3>Masalah</h3>
+  <ul>
+    <li><strong>Pencarian literature tersebar.</strong> Pendidik harus membuka Google Scholar, membuka tiap hasil, lalu menilai sendiri relevansinya.</li>
+    <li><strong>Klasifikasi manual.</strong> Menentukan sebuah artikel masuk mapel dan jenjang mana membutuhkan waktu dan konsistensi tinggi, terutama untuk 45 kombinasi mapel–jenjang.</li>
+    <li><strong>Ringkasan tidak seragam.</strong> Setiap artikel punya struktur berbeda; merangkum manual menghasilkan format yang tidak konsisten.</li>
+    <li><strong>Tidak ada repositori pribadi.</strong> Hasil pencarian dan ringkasan mudah hilang karena tidak tersimpan per pengguna.</li>
+  </ul>
+
+  <h3>Tujuan</h3>
+  <ol>
+    <li>Menyediakan satu alur kerja: cari → lihat klasifikasi → ringkas → simpan.</li>
+    <li>Mengotomasi klasifikasi artikel ke 45 kelas Kurikulum Merdeka dengan model yang dapat dibandingkan.</li>
+    <li>Menghasilkan ringkasan terstruktur tujuh bagian dalam Bahasa Indonesia dari PDF berbahasa apa pun.</li>
+    <li>Menyimpan histori pencarian, catatan, dan library per pengguna dengan autentikasi JWT.</li>
+    <li>Menjaga biaya operasional: cache query dan cache ringkasan mengurangi panggilan API berbayar.</li>
+  </ol>
+
+  <h3>Pengguna sasaran</h3>
+  <table>
+    <thead><tr><th style="width:26%">Persona</th><th>Kebutuhan utama</th></tr></thead>
+    <tbody>
+      <tr><td>Guru</td><td>Materi ajar tambahan sesuai mapel dan jenjang, dalam Bahasa Indonesia</td></tr>
+      <tr><td>Mahasiswa</td><td>Referensi cepat untuk tugas, dengan ringkasan dan daftar pustaka</td></tr>
+      <tr><td>Peneliti pemula</td><td>Pemetaan literatur dan pembandingan hasil klasifikasi antar algoritma</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= 3 ================= -->
+<div class="section">
+  <h2>3. Arsitektur Sistem</h2>
+
+  <div class="diagram">┌──────────────────────┐         HTTPS / JSON          ┌──────────────────────┐
+│  Browser             │ ────────────────────────────▶ │  Frontend            │
+│  localhost:3000      │                               │  Next.js 16          │
+└──────────────────────┘                               └──────────┬───────────┘
+                                                                  │ NEXT_PUBLIC_API_URL
+                                                                  ▼
+                                                       ┌──────────────────────┐
+                                                       │  Backend             │
+                                                       │  Express :5000       │
+                                                       │  JWT + Sequelize     │
+                                                       └──────────┬───────────┘
+                                                                  │ FASTAPI_URL
+                                                                  ▼
+                                                       ┌──────────────────────┐
+                                                       │  AI Service          │
+                                                       │  FastAPI :7860       │
+                                                       │  ML + PDF + LLM      │
+                                                       └────┬──────────┬──────┘
+                                                            │          │
+                                              ┌─────────────┘          └────────────┐
+                                              ▼                                     ▼
+                                    ┌──────────────────┐                  ┌──────────────────┐
+                                    │  SerpAPI         │                  │  Groq API        │
+                                    │  Google Scholar  │                  │  gpt-oss-20b     │
+                                    └──────────────────┘                  └──────────────────┘
+
+                       ┌─────────────────────────────────────────────┐
+                       │  PostgreSQL / Supabase                      │
+                       │  dipakai backend (Sequelize) dan AI service │
+                       │  (SQLAlchemy) pada database yang sama       │
+                       └─────────────────────────────────────────────┘</div>
+
+  <h3>Tanggung jawab tiap layanan</h3>
+  <table>
+    <thead><tr><th style="width:22%">Layanan</th><th style="width:26%">Teknologi</th><th>Tanggung jawab</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Frontend</strong></td>
+        <td>Next.js 16, React 19, Tailwind 4</td>
+        <td>UI pencarian, panel ringkasan, catatan, library, histori, login/register. Menyimpan JWT di cookie <code>auth_token</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>Backend</strong></td>
+        <td>Express 4, Sequelize 6, JWT, bcrypt</td>
+        <td>Autentikasi, otorisasi per user, CRUD catatan dan library, proxy ke AI service, histori pencarian.</td>
+      </tr>
+      <tr>
+        <td><strong>AI service</strong></td>
+        <td>FastAPI, scikit-learn, LaBSE, PyMuPDF</td>
+        <td>Pencarian artikel, cache semantik, klasifikasi 4 model, resolusi PDF, ekstraksi teks, ringkasan LLM.</td>
+      </tr>
+      <tr>
+        <td><strong>Database</strong></td>
+        <td>PostgreSQL 14+ / Supabase</td>
+        <td>Penyimpanan user, catatan, query, artikel, dan relasi library.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Mengapa tiga layanan, bukan satu?</strong> Beban dan dependensi berbeda tajam.
+    AI service memuat model ratusan MB dan berjalan di Hugging Face Space, sementara backend
+    ringan dan bisa berjalan di Netlify Functions. Pemisahan ini juga membuat frontend dapat
+    di-deploy statis di Vercel tanpa mengubah kode AI.</p>
+  </div>
+</div>
+
+<!-- ================= 4 ================= -->
+<div class="section">
+  <h2>4. Stack Teknologi</h2>
+
+  <h3>Frontend</h3>
+  <table>
+    <thead><tr><th style="width:30%">Komponen</th><th style="width:22%">Versi</th><th>Kegunaan</th></tr></thead>
+    <tbody>
+      <tr><td>next</td><td>16.2.6</td><td>App Router, SSR, middleware autentikasi</td></tr>
+      <tr><td>react / react-dom</td><td>19.2.4</td><td>UI</td></tr>
+      <tr><td>tailwindcss</td><td>4.x</td><td>Styling utility-first</td></tr>
+      <tr><td>framer-motion</td><td>12.x</td><td>Animasi dan transisi panel</td></tr>
+      <tr><td>react-markdown + remark-gfm</td><td>10.x / 4.x</td><td>Render ringkasan markdown</td></tr>
+      <tr><td>js-cookie</td><td>3.x</td><td>Baca/tulis token JWT di cookie</td></tr>
+      <tr><td>jspdf</td><td>4.x</td><td>Ekspor catatan ke PDF</td></tr>
+      <tr><td>lucide-react</td><td>1.x</td><td>Ikon</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Backend</h3>
+  <table>
+    <thead><tr><th style="width:30%">Komponen</th><th style="width:22%">Versi</th><th>Kegunaan</th></tr></thead>
+    <tbody>
+      <tr><td>express</td><td>4.21</td><td>HTTP server dan routing</td></tr>
+      <tr><td>sequelize</td><td>6.37</td><td>ORM PostgreSQL</td></tr>
+      <tr><td>pg / pg-hstore</td><td>8.20 / 2.3</td><td>Driver PostgreSQL</td></tr>
+      <tr><td>jsonwebtoken</td><td>9.0</td><td>Token akses 1 hari</td></tr>
+      <tr><td>bcrypt</td><td>6.0</td><td>Hash password</td></tr>
+      <tr><td>axios</td><td>1.13</td><td>Klien HTTP ke AI service</td></tr>
+      <tr><td>express-validator</td><td>7.3</td><td>Validasi input</td></tr>
+      <tr><td>serverless-http</td><td>4.0</td><td>Adapter Netlify Functions</td></tr>
+    </tbody>
+  </table>
+
+  <h3>AI Service</h3>
+  <table>
+    <thead><tr><th style="width:30%">Komponen</th><th style="width:22%">Versi</th><th>Kegunaan</th></tr></thead>
+    <tbody>
+      <tr><td>fastapi</td><td>0.115.6</td><td>REST API (dipin: versi lebih baru menghilangkan route)</td></tr>
+      <tr><td>starlette</td><td>0.41.3</td><td>Dasar FastAPI (dipin bersama fastapi)</td></tr>
+      <tr><td>uvicorn</td><td>0.20+</td><td>ASGI server</td></tr>
+      <tr><td>scikit-learn</td><td>&lt; 2</td><td>KNN, SVM, Logistic Regression, Random Forest</td></tr>
+      <tr><td>sentence-transformers</td><td>&lt; 6</td><td>Embedding LaBSE 768 dimensi</td></tr>
+      <tr><td>torch</td><td>runtime Space</td><td>Backend LaBSE (CPU untuk REST)</td></tr>
+      <tr><td>PyMuPDF</td><td>1.22+</td><td>Ekstraksi teks dan metadata PDF</td></tr>
+      <tr><td>beautifulsoup4</td><td>4.12+</td><td>Parsing HTML untuk mencari link PDF</td></tr>
+      <tr><td>SQLAlchemy</td><td>2.0+</td><td>Akses PostgreSQL</td></tr>
+      <tr><td>gradio</td><td>4.44.0</td><td>UI demo di Hugging Face Space</td></tr>
+      <tr><td>spaces</td><td>HF SDK</td><td>ZeroGPU marker (wajib untuk Space)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>Pin versi bukan tanpa alasan.</strong> <code>fastapi&gt;=0.162</code> dengan
+    <code>starlette&gt;=1.7</code> membuat <code>include_router()</code> tidak mendaftarkan route
+    apa pun sehingga <code>/ai/search</code> dan <code>/ai/summarize</code> hilang. Model
+    <code>.pkl</code> juga dilatih dengan scikit-learn 1.7.x, sehingga major version 2.x
+    berisiko gagal unpickle.</p>
+  </div>
+</div>
+
+<!-- ================= 5 ================= -->
+<div class="section">
+  <h2>5. Struktur Repository</h2>
+
+<pre><code>klipin/
+├── README.md
+├── .gitattributes          # aturan Git LFS untuk *.pkl
+├── .gitignore
+├── database/
+│   └── schema.sql          # skema PostgreSQL untuk instalasi baru
+├── frontend/               # Next.js (App Router)
+│   ├── app/
+│   │   ├── (auth)/login, register
+│   │   └── (main)/         # halaman setelah login
+│   │       ├── page.tsx            # pencarian + ringkasan
+│   │       ├── history/
+│   │       ├── notes/
+│   │       ├── library/
+│   │       └── materials/
+│   ├── components/
+│   ├── lib/api.ts          # seluruh pemanggilan backend
+│   ├── middleware.ts       # proteksi route via cookie auth_token
+│   └── next.config.ts
+├── backend/
+│   ├── server.js
+│   ├── src/
+│   │   ├── app.js
+│   │   ├── configs/database.js
+│   │   ├── controllers/    # auth, note, article, ai
+│   │   ├── models/         # Sequelize: User, Note, Query, Article, SavedArticle
+│   │   ├── routes/         # auth, ai, note, article, welcome
+│   │   └── services/       # ai.service.js, dst.
+│   ├── netlify.toml
+│   └── netlify/functions/api.js
+└── ai-service/
+    ├── app.py              # FastAPI + mount Gradio
+    ├── requirements.txt
+    ├── Dockerfile
+    ├── scripts/train_models.py
+    └── src/
+        ├── database.py
+        ├── schemas.py
+        ├── embed_model.py
+        ├── models/         # 11 file .pkl (Git LFS)
+        ├── routers/router.py
+        └── services/
+            ├── search_service.py
+            ├── clasify_service.py
+            ├── summarize_service.py
+            └── query_service.py, article_service.py</code></pre>
+
+  <h3>Catatan struktur</h3>
+  <ul>
+    <li><strong>Satu repo, tiga folder.</strong> Frontend, backend, dan AI service dapat di-deploy terpisah dari satu commit yang sama.</li>
+    <li><strong>Model di Git LFS.</strong> Total ±540 MB; tanpa LFS, clone akan gagal atau file menjadi pointer.</li>
+    <li><strong>Frontend memakai <code>lib/api.ts</code>.</strong> Seluruh pemanggilan backend terpusat di file ini.</li>
+    <li><strong>Backend tanpa <code>sequelize.sync()</code>.</strong> Skema dijalankan dari <code>database/schema.sql</code>.</li>
+  </ul>
+</div>
+
+<!-- ================= 6 ================= -->
+<div class="section">
+  <h2>6. Pipeline Pencarian dan Klasifikasi</h2>
+
+  <p>Alur lengkap saat pengguna menekan tombol cari:</p>
+
+  <div class="flow">
+    <div class="step"><b>Frontend</b> mengirim <code>POST /api/search</code> dengan body <code>{ query }</code> dan header <code>Authorization: Bearer &lt;JWT&gt;</code>.</div>
+    <div class="step"><b>Backend</b> memverifikasi JWT, memastikan user ada, lalu memanggil <code>POST /ai/search</code> di AI service dengan <code>{ query, user_id }</code>.</div>
+    <div class="step"><b>AI service</b> mengubah query menjadi embedding LaBSE 768 dimensi.</div>
+    <div class="step"><b>Cache semantik:</b> dicari query milik user yang sama dengan cosine similarity ≥ <code>SIMILARITY_THRESHOLD</code> (default 0,85). Jika ada, artikel lama langsung dikembalikan dengan <code>source: "cache"</code>.</div>
+    <div class="step"><b>SerpAPI Google Scholar</b> dipanggil (default 10 hasil, <code>hl=id</code>). Hasil berbentuk buku/ISBN dibuang.</div>
+    <div class="step"><b>Semantic re-ranking:</b> setiap hasil di-embed dari gabungan judul + abstrak, lalu diurutkan berdasarkan cosine similarity terhadap query. Diambil 5 teratas.</div>
+    <div class="step"><b>Klasifikasi:</b> teks <code>judul + abstrak</code> (maksimal 1500 karakter) dibersihkan dengan <code>preservation_clean()</code>, di-embed, lalu diprediksi oleh 4 model. Label dengan confidence tertinggi menjadi <code>subject</code> dan <code>jenjang</code> artikel.</div>
+    <div class="step"><b>Persistensi:</b> query, embedding, <code>model_comparison</code>, dan artikel disimpan ke PostgreSQL. Backend mengembalikan artikel lengkap dengan <code>id</code> database yang dipakai untuk simpan ke library.</div>
+  </div>
+
+  <h3>Detail teknis yang perlu diketahui</h3>
+  <table>
+    <thead><tr><th style="width:32%">Parameter</th><th style="width:20%">Default</th><th>Dampak</th></tr></thead>
+    <tbody>
+      <tr><td><code>SIMILARITY_THRESHOLD</code></td><td>0,85</td><td>Ambang cache. Terlalu rendah: hasil lama dipakai untuk query yang sebenarnya berbeda. Terlalu tinggi: cache jarang kena.</td></tr>
+      <tr><td><code>SERPAPI_NUM</code></td><td>10</td><td>Jumlah hasil mentah dari Google Scholar.</td></tr>
+      <tr><td><code>SERPAPI_TOP_K</code></td><td>5</td><td>Jumlah artikel yang dikembalikan ke pengguna setelah re-ranking.</td></tr>
+      <tr><td><code>MAX_BODY_WORDS</code></td><td>1000</td><td>Batas kata naskah yang dikirim ke LLM (bukan untuk pencarian).</td></tr>
+      <tr><td>Batas teks klasifikasi</td><td>1500 karakter</td><td>Hardcoded di <code>classify()</code>; mencegah input sangat panjang memperlambat inferensi.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Cache bersifat per pengguna.</strong> <code>find_most_similar_query()</code> memfilter
+    <code>user_id</code>, sehingga riwayat pencarian satu pengguna tidak bocor ke pengguna lain
+    meskipun query-nya identik.</p>
+  </div>
+
+  <h3>Mode perbandingan model</h3>
+  <p>
+    Selain memilih label terbaik, AI service mengembalikan <code>model_comparison</code>: hasil
+    keempat algoritma pada query yang sama (label, confidence, status <em>accepted</em>/<em>rejected</em>).
+    Data ini disimpan sebagai kolom JSON di tabel <code>queries</code> dan dapat ditampilkan sebagai
+    pembanding di UI. Sebelumnya field ini dibuang oleh Pydantic karena tidak dideklarasikan,
+    dan sudah diperbaiki di <code>schemas.py</code>.
+  </p>
+</div>
+
+<!-- ================= 7 ================= -->
+<div class="section">
+  <h2>7. Model Klasifikasi dan Performa</h2>
+
+  <h3>Konfigurasi pelatihan</h3>
+  <table>
+    <thead><tr><th style="width:38%">Item</th><th>Nilai</th></tr></thead>
+    <tbody>
+      <tr><td>Jumlah sampel</td><td>4.500 (2.700 train / 900 validation / 900 test)</td></tr>
+      <tr><td>Split</td><td>3-way 60% / 20% / 20%</td></tr>
+      <tr><td>Model embedding</td><td><code>sentence-transformers/LaBSE</code>, 768 dimensi</td></tr>
+      <tr><td>Jumlah kelas</td><td>45 kombinasi mapel–jenjang</td></tr>
+      <tr><td>Sampel minimum per kelas</td><td>10</td></tr>
+      <tr><td>Filter panjang teks</td><td>5–500 kata</td></tr>
+      <tr><td>Tuning</td><td>GridSearchCV pada train set, per algoritma</td></tr>
+      <tr><td>Retrain akhir</td><td>Seluruh data setelah parameter terpilih</td></tr>
+      <tr><td>Threshold</td><td>Ditentukan pada validation set (bukan test set)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Performa per algoritma</h3>
+  <table>
+    <thead>
+      <tr><th>Algoritma</th><th>CV Accuracy</th><th>CV F1 Macro</th><th>Hold-out Accuracy</th><th>Hold-out F1</th><th>Threshold</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>SVM (Linear)</strong> — default</td><td>0,6044</td><td>0,6022</td><td><strong>0,6822</strong></td><td><strong>0,6797</strong></td><td>0,37</td></tr>
+      <tr><td>Logistic Regression</td><td>0,5907</td><td>0,5831</td><td>0,6867</td><td>0,6864</td><td>0,52</td></tr>
+      <tr><td>K-NN (Cosine, k=3)</td><td>0,5704</td><td>0,5674</td><td>0,6556</td><td>0,6536</td><td>0,59</td></tr>
+      <tr><td>Random Forest</td><td>0,5174</td><td>0,5078</td><td>0,5967</td><td>0,5909</td><td>0,09</td></tr>
+    </tbody>
+  </table>
+
+  <p class="muted">
+    SVM dipilih sebagai model default karena performa hold-out tertinggi dan stabil.
+    Logistic Regression sedikit lebih tinggi pada hold-out accuracy, tetapi SVM unggul pada
+    F1 macro dan waktu inferensi yang lebih konsisten.
+  </p>
+
+  <h3>Keputusan arsitektur model</h3>
+  <table>
+    <thead><tr><th style="width:34%">Pendekatan</th><th style="width:20%">Akurasi</th><th>Catatan</th></tr></thead>
+    <tbody>
+      <tr><td>Single-stage (4 model)</td><td>0,6822</td><td>Dipakai di produksi</td></tr>
+      <tr><td>Two-stage: mapel</td><td>0,7889</td><td>Hanya prediksi mapel</td></tr>
+      <tr><td>Two-stage: jenjang</td><td>0,6489</td><td>Hanya prediksi jenjang</td></tr>
+      <tr><td>Two-stage: gabungan</td><td>0,5233</td><td>Kalah 15,9 poin dari single-stage</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info">
+    <p><strong>Threshold per algoritma.</strong> Setiap model punya ambang confidence sendiri.
+    Nilai 0,37 hanya berlaku untuk SVM; memakai satu nilai untuk semua model akan
+    membuat KNN dan LogReg terlalu banyak menolak atau menerima hasil.</p>
+  </div>
+
+  <h3>Daftar kelas</h3>
+  <p>
+    Kelas berbentuk <code>"Mapel - Jenjang"</code>, misalnya <code>Kimia - SMA</code>,
+    <code>Matematika - SD</code>, <code>Ilmu Pengetahuan Alam - SMP</code>,
+    <code>Pendidikan Agama Islam - SMA</code>. Total 45 kelas mencakup SD, SMP, dan SMA
+    untuk mapel umum, agama, PJOK, seni, serta mapel tingkat lanjut.
+  </p>
+
+  <h3>Artefak model</h3>
+  <table>
+    <thead><tr><th style="width:44%">File</th><th style="width:18%">Ukuran</th><th>Fungsi</th></tr></thead>
+    <tbody>
+      <tr><td>model_randomforest.pkl</td><td>±395 MB</td><td>Random Forest</td></tr>
+      <tr><td>svm_model.pkl</td><td>±28,5 MB</td><td>SVM (nama alternatif)</td></tr>
+      <tr><td>model_svm.pkl</td><td>±27,7 MB</td><td>SVM (nama utama)</td></tr>
+      <tr><td>best_classifier.pkl</td><td>±27,7 MB</td><td>Alias model default untuk kompatibilitas</td></tr>
+      <tr><td>stage1_mapel_classifier.pkl</td><td>±24,7 MB</td><td>Two-stage: mapel (riset)</td></tr>
+      <tr><td>stage2_jenjang_classifier.pkl</td><td>±20,7 MB</td><td>Two-stage: jenjang (riset)</td></tr>
+      <tr><td>model_knn.pkl</td><td>±13,2 MB</td><td>K-NN</td></tr>
+      <tr><td>model_logreg.pkl</td><td>±140 KB</td><td>Logistic Regression</td></tr>
+      <tr><td>label_encoder*.pkl</td><td>&lt; 2 KB</td><td>Encoder label utama, mapel, jenjang</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= 8 ================= -->
+<div class="section">
+  <h2>8. Pipeline Ringkasan PDF</h2>
+
+  <p>Ringkasan dipicu saat pengguna memilih artikel, lalu frontend memanggil <code>POST /api/summarize</code> dengan <code>{ url }</code>.</p>
+
+  <div class="flow">
+    <div class="step"><b>Cache ringkasan:</b> URL di-hash SHA-256; jika hasil masih ada dan belum kedaluwarsa (default 24 jam), hasil dikembalikan tanpa memanggil LLM.</div>
+    <div class="step"><b>Resolusi PDF</b> (<code>_find_pdf_url</code>): coba pola OJS <code>/article/view/</code> → <code>/article/download/</code>; jika URL langsung PDF, pakai; jika HTML, cari <code>a.pdf</code> atau link yang mengandung <code>.pdf</code>, <code>/pdf</code>, <code>download</code>, <code>fulltext</code>.</div>
+    <div class="step"><b>Validasi:</b> respons harus <code>application/pdf</code>; jika tidak, permintaan gagal dengan 422.</div>
+    <div class="step"><b>Ekstraksi PyMuPDF:</b> seluruh halaman dibaca, judul diambil dari metadata PDF lalu fallback ke blok teks terbesar di bagian atas halaman pertama.</div>
+    <div class="step"><b>Pemisahan pustaka:</b> teks dipecah pada kata <em>daftar pustaka</em>, <em>references</em>, <em>bibliography</em>. Naskah utama dibatasi 1000 kata, pustaka 200 kata.</div>
+    <div class="step"><b>LLM:</b> Groq <code>openai/gpt-oss-20b</code>, temperature 0,2, <code>reasoning_effort: low</code>, maksimal 1300 token output. Retry otomatis saat 429/5xx.</div>
+    <div class="step"><b>Parsing:</b> output dipecah menjadi 7 field dengan regex. Jika field kurang dari 4 atau output terpotong, permintaan diulang.</div>
+    <div class="step"><b>Simpan cache</b> lalu kembalikan ke frontend untuk ditampilkan dan dapat disimpan sebagai catatan.</div>
+  </div>
+
+  <h3>Kontrak output ringkasan</h3>
+  <table>
+    <thead><tr><th style="width:28%">Field</th><th>Isi</th></tr></thead>
+    <tbody>
+      <tr><td><code>judul</code></td><td>Judul dokumen; fallback dari metadata/first page jika model mengosongkan</td></tr>
+      <tr><td><code>author</code></td><td>Penulis dokumen</td></tr>
+      <tr><td><code>kompetensi</code></td><td>Fokus masalah, tujuan, atau kompetensi</td></tr>
+      <tr><td><code>isi_materi</code></td><td>Pembahasan pokok dan metodologi</td></tr>
+      <tr><td><code>temuan</code></td><td>Fakta, data, atau temuan inti</td></tr>
+      <tr><td><code>kesimpulan</code></td><td>Paragraf utuh, bukan poin-poin</td></tr>
+      <tr><td><code>daftar_pustaka</code></td><td>Referensi utama dari dokumen</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Batasan yang melekat</h3>
+  <ul>
+    <li><strong>Paywall dan JavaScript.</strong> Halaman yang membutuhkan login atau merender PDF via JavaScript tidak bisa diambil dengan <code>requests</code>.</li>
+    <li><strong>PDF hasil scan.</strong> PyMuPDF tidak melakukan OCR; dokumen scan tanpa layer teks akan menghasilkan teks kosong.</li>
+    <li><strong>Kuota LLM.</strong> Free tier Groq dibatasi token per menit; dokumen sangat panjang akan terpotong sesuai <code>SUMMARY_MAX_*</code>.</li>
+    <li><strong>Konsistensi format.</strong> Model dapat mengembalikan variasi label; parser sudah toleran, tetapi prompt yang diubah harus menjaga tujuh label tersebut.</li>
+  </ul>
+</div>
+
+<!-- ================= 9 ================= -->
+<div class="section">
+  <h2>9. Skema Database</h2>
+
+  <table>
+    <thead><tr><th style="width:24%">Tabel</th><th>Kolom utama</th><th style="width:30%">Fungsi</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>users</code></td>
+        <td><code>user_id</code> (PK), <code>username</code> (unik), <code>password</code> (bcrypt), <code>created_at</code>, <code>updated_at</code></td>
+        <td>Akun pengguna</td>
+      </tr>
+      <tr>
+        <td><code>notes</code></td>
+        <td><code>id</code> (PK), <code>user_id</code> (FK), <code>title</code>, <code>contents</code>, timestamps</td>
+        <td>Catatan ringkasan milik pengguna</td>
+      </tr>
+      <tr>
+        <td><code>queries</code></td>
+        <td><code>id</code> (PK), <code>user_id</code> (FK), <code>query_text</code>, <code>embedding</code> (JSON), <code>model_comparison</code> (JSON), <code>created_at</code></td>
+        <td>Histori query + cache semantik</td>
+      </tr>
+      <tr>
+        <td><code>articles</code></td>
+        <td><code>id</code> (PK), <code>query_id</code> (FK), <code>title</code>, <code>url</code>, <code>abstract</code>, <code>authors</code> (JSON), <code>year</code>, <code>subject</code>, <code>jenjang</code>, <code>relevance_score</code>, <code>confidence</code></td>
+        <td>Artikel hasil pencarian</td>
+      </tr>
+      <tr>
+        <td><code>saved_articles</code></td>
+        <td><code>id</code> (PK), <code>user_id</code> (FK), <code>article_id</code> (FK), <code>created_at</code>, unik <code>(user_id, article_id)</code></td>
+        <td>Library pengguna (many-to-many)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Relasi</h3>
+  <div class="diagram">users 1 ────── N notes
+users 1 ────── N queries 1 ────── N articles
+users 1 ────── N saved_articles N ────── 1 articles</div>
+
+  <p>
+    Semua foreign key memakai <code>ON DELETE CASCADE</code> kecuali yang tidak relevan,
+    sehingga menghapus user akan membersihkan catatan, query, artikel, dan library-nya.
+    Unik gabungan pada <code>saved_articles</code> mencegah artikel yang sama disimpan dua kali;
+    backend memetakan pelanggaran ini menjadi HTTP 409.
+  </p>
+
+  <h3>Catatan operasional</h3>
+  <ul>
+    <li>Backend tidak membuat tabel otomatis. Jalankan <code>database/schema.sql</code> sebelum start.</li>
+    <li>AI service menjalankan migrasi ringan saat startup: <code>ALTER TABLE queries ADD COLUMN IF NOT EXISTS model_comparison JSON</code>.</li>
+    <li>Kolom <code>embedding</code> disimpan sebagai JSON, bukan tipe vektor. Pencarian kemiripan dilakukan di aplikasi (Python), bukan di database.</li>
+    <li>Supabase pooler memakai port 6543 dan SSL; PostgreSQL lokal memakai 5432 tanpa SSL (<code>DB_SSL=false</code>).</li>
+  </ul>
+</div>
+
+<!-- ================= 10 ================= -->
+<div class="section">
+  <h2>10. Referensi API</h2>
+
+  <p>Semua endpoint di bawah memerlukan header <code>Authorization: Bearer &lt;JWT&gt;</code>, kecuali yang ditandai publik.</p>
+
+  <h3>Auth</h3>
+  <table>
+    <thead><tr><th style="width:12%">Method</th><th style="width:30%">Path</th><th>Fungsi</th></tr></thead>
+    <tbody>
+      <tr><td>POST</td><td><code>/api/auth/register</code></td><td>Registrasi; password minimal 8 karakter, huruf besar dan angka</td></tr>
+      <tr><td>POST</td><td><code>/api/auth/login</code></td><td>Login; mengembalikan JWT berlaku 1 hari</td></tr>
+      <tr><td>GET</td><td><code>/api/auth/profile</code></td><td>Profil pengguna dari token</td></tr>
+    </tbody>
+  </table>
+
+  <h3>AI Gateway</h3>
+  <table>
+    <thead><tr><th style="width:12%">Method</th><th style="width:34%">Path</th><th>Fungsi</th></tr></thead>
+    <tbody>
+      <tr><td>GET</td><td><code>/api/ai/ready</code> <span class="tag">publik</span></td><td>Health check/warmup AI service</td></tr>
+      <tr><td>POST</td><td><code>/api/search</code></td><td>Cari + klasifikasi artikel</td></tr>
+      <tr><td>GET</td><td><code>/api/search/history</code></td><td>Riwayat query beserta artikel</td></tr>
+      <tr><td>DELETE</td><td><code>/api/search/history/:queryId</code></td><td>Hapus satu riwayat</td></tr>
+      <tr><td>POST</td><td><code>/api/summarize</code></td><td>Ringkas PDF dari URL</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Notes</h3>
+  <table>
+    <thead><tr><th style="width:12%">Method</th><th style="width:34%">Path</th><th>Fungsi</th></tr></thead>
+    <tbody>
+      <tr><td>GET</td><td><code>/api/note</code></td><td>Semua catatan pengguna</td></tr>
+      <tr><td>GET</td><td><code>/api/note/:id</code></td><td>Detail catatan</td></tr>
+      <tr><td>POST</td><td><code>/api/note/add</code></td><td>Tambah catatan (<code>title</code>, <code>contents</code>)</td></tr>
+      <tr><td>PUT</td><td><code>/api/note/edit/:id</code></td><td>Edit <code>title</code> dan/atau <code>contents</code></td></tr>
+      <tr><td>DELETE</td><td><code>/api/note/delete/:id</code></td><td>Hapus catatan</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Library</h3>
+  <table>
+    <thead><tr><th style="width:12%">Method</th><th style="width:42%">Path</th><th>Fungsi</th></tr></thead>
+    <tbody>
+      <tr><td>GET</td><td><code>/api/library/saved-articles</code></td><td>Daftar artikel tersimpan</td></tr>
+      <tr><td>POST</td><td><code>/api/library/saved-articles</code></td><td>Simpan artikel, body <code>{ "articleId": 123 }</code></td></tr>
+      <tr><td>DELETE</td><td><code>/api/library/saved-articles/:articleId</code></td><td>Hapus dari library</td></tr>
+    </tbody>
+  </table>
+
+  <h3>AI Service langsung</h3>
+  <table>
+    <thead><tr><th style="width:12%">Method</th><th style="width:30%">Path</th><th>Body</th></tr></thead>
+    <tbody>
+      <tr><td>GET</td><td><code>/health</code></td><td>—</td></tr>
+      <tr><td>POST</td><td><code>/ai/search</code></td><td><code>{ "query": "...", "user_id": 1 }</code></td></tr>
+      <tr><td>POST</td><td><code>/ai/summarize</code></td><td><code>{ "url": "https://..." }</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Contoh respons pencarian</h3>
+<pre><code>{
+  "source": "serpapi",
+  "similarity_score": null,
+  "model_comparison": [
+    { "model": "SVM", "confidence": 87, "label": "Kimia - SMA", "status": "accepted" }
+  ],
+  "articles": [
+    {
+      "id": 716,
+      "title": "REAKSI KIMIA",
+      "url": "https://...",
+      "subject": "Kimia",
+      "jenjang": "SMA",
+      "relevance_score": 0.8123,
+      "confidence": 0.87
+    }
+  ]
+}</code></pre>
+
+  <div class="callout warn">
+    <p><strong>Kode status penting.</strong> <code>409</code> = artikel sudah ada di library,
+    <code>404</code> = artikel/catatan tidak ditemukan, <code>422</code> = PDF tidak ditemukan
+    atau di balik paywall, <code>503 AI_WARMING_UP</code> = Space AI masih bangun.</p>
+  </div>
+</div>
+
+<!-- ================= 11 ================= -->
+<div class="section">
+  <h2>11. Keamanan</h2>
+
+  <table>
+    <thead><tr><th style="width:28%">Area</th><th style="width:26%">Kondisi saat ini</th><th>Rekomendasi</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Password</td>
+        <td>bcrypt, tidak pernah dikembalikan API</td>
+        <td>Tambahkan kebijakan panjang dan cek password bocor</td>
+      </tr>
+      <tr>
+        <td>Token</td>
+        <td>JWT 1 hari, disimpan di cookie <code>auth_token</code></td>
+        <td>Pertimbangkan refresh token dan <code>httpOnly</code></td>
+      </tr>
+      <tr>
+        <td>CORS</td>
+        <td><code>cors()</code> terbuka untuk semua origin</td>
+        <td>Batasi ke <code>FRONTEND_ORIGIN</code> di produksi</td>
+      </tr>
+      <tr>
+        <td>Secret</td>
+        <td>Semua lewat env; tidak ada key di source</td>
+        <td>Rotasi key yang pernah bocor, gunakan secret manager</td>
+      </tr>
+      <tr>
+        <td>AI service</td>
+        <td>Tidak punya autentikasi sendiri</td>
+        <td>Batasi jaringan atau tambahkan API key internal</td>
+      </tr>
+      <tr>
+        <td>Otorisasi</td>
+        <td>Setiap query memfilter <code>user_id</code></td>
+        <td>Tambahkan uji regresi untuk akses lintas user</td>
+      </tr>
+      <tr>
+        <td>Input</td>
+        <td><code>express-validator</code> pada auth</td>
+        <td>Validasi juga body note dan library</td>
+      </tr>
+      <tr>
+        <td>Rate limit</td>
+        <td>Belum ada di backend</td>
+        <td>Tambahkan pembatas per IP/user untuk search dan summarize</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn">
+    <p><strong>Riwayat secret.</strong> SerpAPI key dan kredensial Supabase pernah tertanam sebagai
+    nilai default di source AI. Keduanya sudah dihapus dari repo ini, tetapi harus dianggap bocor
+    dan segera dirotasi. Token GitHub yang dipakai untuk publishing juga sebaiknya di-revoke.</p>
+  </div>
+</div>
+
+<!-- ================= 12 ================= -->
+<div class="section">
+  <h2>12. Topologi Deployment</h2>
+
+  <table>
+    <thead><tr><th style="width:18%">Layanan</th><th style="width:26%">Target</th><th>Konfigurasi kunci</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Database</td>
+        <td>Supabase</td>
+        <td>Jalankan <code>database/schema.sql</code>; pakai pooler port 6543; simpan kredensial di secret</td>
+      </tr>
+      <tr>
+        <td>AI service</td>
+        <td>Hugging Face Space (Gradio) atau Docker</td>
+        <td><code>SERPAPI_KEY</code>, <code>GROQ_API_KEY</code>, <code>DB_*</code>; model dari Git LFS; health check <code>/health</code></td>
+      </tr>
+      <tr>
+        <td>Backend</td>
+        <td>Netlify Functions, Render, Railway, Fly.io</td>
+        <td><code>JWT_SECRET</code>, <code>DB_*</code>, <code>FASTAPI_URL</code>, <code>AI_TIMEOUT_MS</code></td>
+      </tr>
+      <tr>
+        <td>Frontend</td>
+        <td>Vercel</td>
+        <td>Root directory <code>frontend</code>; <code>NEXT_PUBLIC_API_URL</code> ke backend</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Konsekuensi Netlify Functions</h3>
+  <p>
+    Fungsi sinkron Netlify memiliki batas sekitar 10 detik. Karena itu backend memakai
+    <code>AI_TIMEOUT_MS=9000</code> untuk pencarian agar kegagalan muncul sebagai pesan yang
+    bisa dibaca, bukan timeout platform yang tampak seperti error CORS. Untuk ringkasan,
+    <code>AI_SUMMARIZE_TIMEOUT_MS</code> dinaikkan ke 55 detik dan membutuhkan platform yang
+    mengizinkan durasi tersebut.
+  </p>
+
+  <h3>Cold start</h3>
+  <p>
+    Space gratis tidur saat tidak dipakai. Permintaan pertama membutuhkan puluhan detik,
+    sehingga backend mengembalikan <code>503 AI_WARMING_UP</code>. Frontend memanggil
+    <code>/api/ai/ready</code> lebih dulu untuk memanaskan layanan. Untuk produksi,
+    pertimbangkan Space berbayar atau container yang selalu hidup.
+  </p>
+
+  <div class="diagram">Frontend (Vercel)
+    │  NEXT_PUBLIC_API_URL
+    ▼
+Backend (Netlify / Render)
+    │  FASTAPI_URL
+    ▼
+AI Service (Hugging Face Space)
+    ├── SerpAPI  (pencarian)
+    ├── Groq     (ringkasan)
+    └── Supabase (baca/tulis artikel)</div>
+</div>
+
+<!-- ================= 13 ================= -->
+<div class="section">
+  <h2>13. Batasan dan Rekomendasi</h2>
+
+  <h3>Batasan saat ini</h3>
+  <table>
+    <thead><tr><th style="width:30%">Batasan</th><th>Dampak</th><th style="width:32%">Mitigasi</th></tr></thead>
+    <tbody>
+      <tr><td>Akurasi klasifikasi 68,2%</td><td>Sebagian artikel mendapat label kurang tepat</td><td>Tampilkan confidence; sediakan koreksi manual</td></tr>
+      <tr><td>Ketergantungan SerpAPI</td><td>Kuota habis = pencarian berhenti</td><td>Cache, fallback OpenAlex/Semantic Scholar</td></tr>
+      <tr><td>Paywall/JS</td><td>Ringkasan gagal 422</td><td>Resolver domain, Unpaywall, Playwright</td></tr>
+      <tr><td>Rate limit Groq</td><td>Ringkasan gagal sementara</td><td>Cache, retry, naikkan kuota</td></tr>
+      <tr><td>Cold start Space</td><td>Request pertama lambat/503</td><td>Warmup, Space selalu hidup</td></tr>
+      <tr><td>Embedding di JSON</td><td>Pencarian mirip dilakukan di aplikasi</td><td>pgvector bila data membesar</td></tr>
+      <tr><td>Tidak ada OCR</td><td>PDF scan tidak bisa diringkas</td><td>Tambahkan Tesseract/OCR service</td></tr>
+      <tr><td>Tanpa rate limit backend</td><td>Rentan penyalahgunaan</td><td>Middleware pembatas per user/IP</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Rekomendasi pengembangan</h3>
+  <ol>
+    <li><strong>Umpan balik pengguna.</strong> Simpan koreksi label agar model dapat dievaluasi ulang dan dataset bertambah.</li>
+    <li><strong>Plugin sumber data.</strong> Abstraksi provider pencarian dengan antarmuka seragam (lihat dokumen tutorial).</li>
+    <li><strong>Antrian ringkasan.</strong> Pindahkan proses PDF+LLM ke job queue agar request HTTP tidak menunggu lama.</li>
+    <li><strong>Observability.</strong> Catat durasi per tahap (SerpAPI, embedding, klasifikasi, LLM) dan tingkat kegagalan.</li>
+    <li><strong>Keamanan produksi.</strong> CORS terbatas, rate limit, autentikasi internal untuk AI service, dan rotasi secret berkala.</li>
+  </ol>
+</div>
+
+<!-- ================= 14 ================= -->
+<div class="section">
+  <h2>14. Perbaikan yang Diterapkan</h2>
+
+  <p>Repo ini bukan salinan mentah. Sejumlah perbaikan integrasi dan keamanan sudah diterapkan sebelum publikasi.</p>
+
+  <table>
+    <thead><tr><th style="width:5%">#</th><th style="width:30%">Lokasi</th><th>Perubahan</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><code>ai-service/src/services/search_service.py</code></td><td>Hardcoded SerpAPI key dihapus; key dibaca dari <code>SERPAPI_KEY</code>. URL, engine, jumlah hasil, dan top-K dapat diatur lewat env.</td></tr>
+      <tr><td>2</td><td><code>ai-service/src/database.py</code></td><td>Kredensial Supabase default dihapus; wajib env atau <code>DATABASE_URL</code> dengan pesan error yang jelas.</td></tr>
+      <tr><td>3</td><td><code>ai-service/src/schemas.py</code></td><td><code>model_comparison</code> ditambahkan ke <code>SearchResponse</code> agar tidak dibuang Pydantic.</td></tr>
+      <tr><td>4</td><td><code>backend/src/controllers/note.controller.js</code></td><td>Edit catatan menerima <code>contents</code> (kompatibel dengan <code>content</code>); identifier tak terdefinisi <code>mC</code> diperbaiki.</td></tr>
+      <tr><td>5</td><td><code>backend/src/controllers/article.controller.js</code></td><td>Simpan duplikat → 409; artikel tidak ditemukan → 404 (sebelumnya 500).</td></tr>
+      <tr><td>6</td><td><code>backend/src/configs/database.js</code></td><td><code>DB_SSL=false</code> didukung untuk PostgreSQL lokal.</td></tr>
+      <tr><td>7</td><td><code>frontend/lib/api.ts</code></td><td>Endpoint library disesuaikan (<code>/library/saved-articles</code>, body <code>articleId</code>); <code>NEXT_PUBLIC_API_URL</code> menerima host atau path <code>/api</code>.</td></tr>
+      <tr><td>8</td><td><code>ai-service/app.py</code></td><td>Blok <code>if __name__ == "__main__"</code> duplikat dihapus.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Verifikasi yang dilakukan</h3>
+  <ul>
+    <li>Build produksi frontend berhasil (Next.js 16, 11 route).</li>
+    <li>Backend hasil ekspor diuji di port terpisah: register, login, search (5 artikel), simpan library, duplikat, hapus, edit catatan, hapus catatan.</li>
+    <li>UI diuji end-to-end: pencarian “reaksi kimia”, ringkasan PDF, simpan ke library, dan halaman Materi menampilkan artikel tersimpan.</li>
+    <li>Scan secret pada commit akhir: tidak ada SerpAPI key, kredensial Supabase, token Groq, atau token GitHub.</li>
+    <li>Model 11 file terverifikasi sebagai objek Git LFS.</li>
+  </ul>
+
+  <div class="callout" style="margin-top:18px">
+    <p><strong>Dokumen pendamping.</strong> Langkah instalasi, konfigurasi environment, deployment,
+    serta tutorial mengganti sumber artikel, resolver PDF, dan model ringkasan dijelaskan di
+    <em>Klipin — Tutorial Lengkap</em>.</p>
+  </div>
+
+  <p class="muted" style="margin-top:22px; border-top:1px solid #e2e8ee; padding-top:10px">
+    Klipin · Dokumentasi Deskripsi &amp; Detail Project · Versi 1.0 · 19 November 2026<br>
+    Repository: github.com/Ilhamaji/klipin
+  </p>
+</div>
+
+</body>
+</html>

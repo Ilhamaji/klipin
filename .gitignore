@@ -29,6 +29,9 @@ ENV/
 # (They are explicitly added with `git add` below, which respects .gitattributes.)
 # ai-service/src/models/*.pkl
 
+# Generated documentation PDFs (render from docs/src, see docs/README.md)
+docs/*.pdf
+
 # Logs and local tooling
 *.log
 .DS_Store
