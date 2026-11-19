@@ -2,6 +2,8 @@
 
 Klipin adalah sistem riset literatur berbasis AI. Pengguna mencari artikel akademik, sistem mengklasifikasikan artikel berdasarkan mata pelajaran dan jenjang, lalu pengguna dapat membuat ringkasan terstruktur dari PDF artikel, menyimpannya sebagai catatan, dan menyimpan artikel ke library pribadi.
 
+**Demo:** [klipin-ts.vercel.app](https://klipin-ts.vercel.app)
+
 Repo ini adalah **monorepo lengkap** yang berisi:
 
 | Folder | Isi | Teknologi |
