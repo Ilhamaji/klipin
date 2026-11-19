@@ -1,0 +1,43 @@
+# ── Web framework ────────────────────────────────────────────────────
+# fastapi/starlette MUST be < 0.116 / < 0.42: with fastapi>=0.162 +
+# starlette>=1.7, APIRouter.include_router() silently registers NO routes,
+# so /ai/search and /ai/summarize disappear from the app (verified).
+fastapi==0.115.6
+starlette==0.41.3
+uvicorn[standard]>=0.20.0
+python-dotenv>=1.0.0
+
+# ── Hugging Face Space SDK (ZeroGPU decorators) ──────────────────────
+spaces
+
+# ── HTTP / scraping ──────────────────────────────────────────────────
+requests>=2.28.0
+httpx
+beautifulsoup4>=4.12.0
+PyMuPDF>=1.22.0
+
+# ── ML stack ─────────────────────────────────────────────────────────
+# Pinned below 5.x/6.x/1.0 on purpose:
+#   * gradio 4.44.0 imports `HfFolder`, removed in huggingface_hub >= 1.0
+#   * transformers >= 5 needs huggingface_hub >= 2.x, which reintroduces
+#     the gradio import error (`ResolvedRevision`), so transformers stays 4.x
+# torch is preinstalled in HF Spaces images; listing it unpinned is fine.
+torch
+transformers<5
+sentence-transformers<6
+huggingface_hub<1.0
+safetensors
+tokenizers<0.22
+# Models in src/models/*.pkl were verified loading with scikit-learn 1.7.x;
+# keep the major pinned so a future 2.x release cannot break unpickling.
+scikit-learn<2
+numpy
+joblib
+
+# ── Database ─────────────────────────────────────────────────────────
+SQLAlchemy>=2.0.0
+PyMySQL
+psycopg2-binary
+
+# ── Gradio UI ────────────────────────────────────────────────────────
+gradio==4.44.0

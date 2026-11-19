@@ -1,0 +1,41 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+coverage/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# AI model files are stored with Git LFS; keep the working copies ignored by
+# normal Git so a missing `git lfs` install does not add 500+ MB as plain blobs.
+# (They are explicitly added with `git add` below, which respects .gitattributes.)
+# ai-service/src/models/*.pkl
+
+# Logs and local tooling
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build/temp
+tmp/
+temp/
